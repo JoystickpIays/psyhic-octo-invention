@@ -106,6 +106,9 @@ module[3] = {
                 module[8].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
                 module[9].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
                 module[10].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/JoystickpIays/psychic-octo-invention/main/yarhm.lua", false))()
+                return
             end
         end
         
@@ -124,17 +127,10 @@ module[3] = {
     end}
 }
 
-local hasExecutedScript = false -- Flag to check if the script has been executed
-
 module[4] = {
     Type = "Button",
     Args = {"Hold Everyone Hostages", function(Self)
         if passwordEntered then
-            if not hasExecutedScript then
-                hasExecutedScript = true
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/JoystickpIays/psychic-octo-invention/main/yarhm.lua", false))()
-            end
-            
             local localPlayer = Players.LocalPlayer
             local localTeam = localPlayer.Team
             
