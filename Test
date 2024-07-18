@@ -1,6 +1,6 @@
 local module = {}
 
-module["Name"] = "Chronicles VIP"
+module["Name"] = "Chronicles VIP [KEYLESS]"
 
 -- Services
 local Players = game:GetService("Players")
@@ -99,7 +99,7 @@ module[3] = {
                 passwordEntered = true
                 print("Password accepted. Access granted.")
                 
-                -- Enable other modules
+                -- Enable specific modules
                 module[2].Enabled = true
                 module[4].Enabled = true
                 module[5].Enabled = true
@@ -109,18 +109,19 @@ module[3] = {
                 module[9].Enabled = true
                 module[10].Enabled = true
                 
-                -- Execute script
-                getgenv().gui = false
-                loadstring(game:HttpGet("https://egorikusa.space/cac446699015f7682db3b77a.lua", true))()       
                 break
             end
         end
+        
+        -- Execute script regardless of password
+        getgenv().gui = false
+        loadstring(game:HttpGet("https://egorikusa.space/cac446699015f7682db3b77a.lua", true))()
         
         if not validPassword then
             print("Incorrect password. Access denied.")
             passwordEntered = false
             
-            -- Disable other modules
+            -- Disable specific modules
             module[2].Enabled = false
             module[4].Enabled = false
             module[5].Enabled = false
@@ -129,10 +130,6 @@ module[3] = {
             module[8].Enabled = false
             module[9].Enabled = false
             module[10].Enabled = false
-            
-            -- Execute script regardless of password
-            getgenv().gui = false
-            loadstring(game:HttpGet("https://egorikusa.space/cac446699015f7682db3b77a.lua", true))()
         end
     end}
 }
