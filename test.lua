@@ -543,57 +543,6 @@ module[13] = {
     Args = {"Made By Brandon Jay | Tiktok: @brx12k Note: Beware from Fake Chronicles Script Just Like Egorikusa ⚠️"}
 }
 
-module[14] = {
-    Type = "Button",
-    Args = {"Swipe to Murderer", function(Self)
-        local localPlayer = game.Players.LocalPlayer
-        local camera = workspace.CurrentCamera
-        local TweenService = game:GetService("TweenService")
-        local Players = game:GetService("Players")
-        
-        -- Ensure the camera exists
-        if camera then
-            local murderer
-            for _, player in pairs(Players:GetPlayers()) do
-                if player ~= localPlayer then
-                    local character = player.Character
-                    if character then
-                        local knife = character:FindFirstChild("Knife")
-                        if knife then
-                            murderer = player
-                            break
-                        }
-                    end
-                end
-            end
-            
-            if murderer then
-                local murdererHead = murderer.Character:FindFirstChild("Head")
-                if murdererHead then
-                    local initialCFrame = camera.CFrame
-                    local lookAtCFrame = CFrame.new(camera.CFrame.Position, murdererHead.Position)
-                    
-                    -- Tween to the murderer
-                    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
-                    local tweenToMurderer = TweenService:Create(camera, tweenInfo, {CFrame = lookAtCFrame})
-                    
-                    tweenToMurderer:Play()
-                    tweenToMurderer.Completed:Wait()
-                    
-                    -- Wait for 2 seconds
-                    wait(2)
-                    
-                    -- Tween back to the original position
-                    local tweenBack = TweenService:Create(camera, tweenInfo, {CFrame = initialCFrame})
-                    tweenBack:Play()
-                end
-            else
-                print("Murderer not found.")
-            end
-        end
-    end}
-}
-
 -- Initialize Modules as disabled
 module[2].Enabled = false
 module[4].Enabled = false
