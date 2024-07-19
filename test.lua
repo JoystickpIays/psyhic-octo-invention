@@ -457,30 +457,79 @@ module[12] = {
         if passwordEntered then
             local localPlayer = Players.LocalPlayer
             local camera = workspace.CurrentCamera
+            local TweenService = game:GetService("TweenService")
+            local Players = game:GetService("Players")
             
             -- Ensure the camera exists
             if camera then
-                -- Define the spin duration and increment
-                local spinDuration = 1  -- Duration of the spin in seconds
-                local spinIncrement = 5  -- Degrees to rotate each step
+                local spinDuration = 5  -- Duration of the spin in seconds
+                local spinSpeed = 360  -- Speed of the spin in degrees per second
+                
+                -- Calculate the total rotation angle based on speed and duration
+                local totalRotation = math.rad(spinSpeed * spinDuration)
                 
                 -- Get the current CFrame
                 local initialCFrame = camera.CFrame
-                local endTime = tick() + spinDuration
-
-                -- Function to rotate the camera
-                local function rotateCamera()
-                    while tick() < endTime do
-                        -- Rotate the camera
-                        camera.CFrame = initialCFrame * CFrame.Angles(0, math.rad(spinIncrement), 0)
-                        wait(0.1)  -- Wait for a short period before the next increment
+                
+                -- Define the goal CFrame (rotate around the Y axis based on speed and duration)
+                local goalCFrame = initialCFrame * CFrame.Angles(0, totalRotation, 0)
+                
+                -- Define tween info
+                local tweenInfo = TweenInfo.new(spinDuration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+                
+                -- Create the tween
+                local tween = TweenService:Create(camera, tweenInfo, {CFrame = goalCFrame})
+                
+                -- Function to check if the camera is facing a player with a "Knife" tool
+                local function isFacingPlayerWithKnife()
+                    for _, player in pairs(Players:GetPlayers()) do
+                        if player ~= localPlayer then
+                            local character = player.Character
+                            if character then
+                                local head = character:FindFirstChild("Head")
+                                local knife = character:FindFirstChild("Knife")
+                                if head and knife then
+                                    local directionToPlayer = (head.Position - camera.CFrame.Position).unit
+                                    local cameraLookVector = camera.CFrame.LookVector
+                                    local angle = math.acos(cameraLookVector:Dot(directionToPlayer))
+                                    
+                                    if angle < math.rad(5) then  -- Check if the angle is small enough
+                                        return player
+                                    end
+                                end
+                            end
+                        end
                     end
-                    -- Reset the camera to the initial CFrame
+                    return nil
+                end
+                
+                -- Function to stop the tween and return the camera to its original position
+                local function stopAndReturnCamera()
+                    tween:Cancel()
+                    wait(1)
                     camera.CFrame = initialCFrame
                 end
-
-                -- Start the camera rotation
-                rotateCamera()
+                
+                -- Connect the tween's Step event to check if the camera is facing a player with a "Knife" tool
+                local connection
+                connection = game:GetService("RunService").RenderStepped:Connect(function()
+                    local player = isFacingPlayerWithKnife()
+                    if player then
+                        -- Snap camera to face the player
+                        local head = player.Character:FindFirstChild("Head")
+                        if head then
+                            local lookAt = CFrame.new(camera.CFrame.Position, head.Position)
+                            camera.CFrame = lookAt
+                        end
+                        
+                        -- Stop and return the camera after 1 second
+                        stopAndReturnCamera()
+                        connection:Disconnect()
+                    end
+                end)
+                
+                -- Play the tween
+                tween:Play()
             end
         else
             print("Please enter a valid password.")
@@ -492,6 +541,57 @@ module[12] = {
 module[13] = {
     Type = "Text",
     Args = {"Made By Brandon Jay | Tiktok: @brx12k Note: Beware from Fake Chronicles Script Just Like Egorikusa ⚠️"}
+}
+
+module[14] = {
+    Type = "Button",
+    Args = {"Swipe to Murderer", function(Self)
+        local localPlayer = game.Players.LocalPlayer
+        local camera = workspace.CurrentCamera
+        local TweenService = game:GetService("TweenService")
+        local Players = game:GetService("Players")
+        
+        -- Ensure the camera exists
+        if camera then
+            local murderer
+            for _, player in pairs(Players:GetPlayers()) do
+                if player ~= localPlayer then
+                    local character = player.Character
+                    if character then
+                        local knife = character:FindFirstChild("Knife")
+                        if knife then
+                            murderer = player
+                            break
+                        }
+                    end
+                end
+            end
+            
+            if murderer then
+                local murdererHead = murderer.Character:FindFirstChild("Head")
+                if murdererHead then
+                    local initialCFrame = camera.CFrame
+                    local lookAtCFrame = CFrame.new(camera.CFrame.Position, murdererHead.Position)
+                    
+                    -- Tween to the murderer
+                    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+                    local tweenToMurderer = TweenService:Create(camera, tweenInfo, {CFrame = lookAtCFrame})
+                    
+                    tweenToMurderer:Play()
+                    tweenToMurderer.Completed:Wait()
+                    
+                    -- Wait for 2 seconds
+                    wait(2)
+                    
+                    -- Tween back to the original position
+                    local tweenBack = TweenService:Create(camera, tweenInfo, {CFrame = initialCFrame})
+                    tweenBack:Play()
+                end
+            else
+                print("Murderer not found.")
+            end
+        end
+    end}
 }
 
 -- Initialize Modules as disabled
