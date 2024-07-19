@@ -387,50 +387,64 @@ module[10] = {
 module[11] = {
     Type = "Button",
     Args = {"Throw knife to closest player (MM2 Only)", function(Self)
-        if findMurderer() ~= localplayer then 
-            print("Thanks to Brandon Jay to make it accurate. You're not a murderer.") 
-            return 
-        end
+        if passwordEntered then
+            if findMurderer() ~= localplayer then 
+                print("Thanks to Brandon Jay to make it accurate. You're not a murderer.") 
+                return 
+            end
 
-        if not localplayer.Character:FindFirstChild("Knife") then
-            local hum = localplayer.Character:FindFirstChild("Humanoid")
-            if localplayer.Backpack:FindFirstChild("Knife") then
-                hum:EquipTool(localplayer.Backpack:FindFirstChild("Knife"))
-            else
-                print("You don't have the knife..?")
+            if not localplayer.Character:FindFirstChild("Knife") then
+                local hum = localplayer.Character:FindFirstChild("Humanoid")
+                if localplayer.Backpack:FindFirstChild("Knife") then
+                    hum:EquipTool(localplayer.Backpack:FindFirstChild("Knife"))
+                else
+                    print("You don't have the knife..?")
+                    return
+                end
+            end
+
+            local closestPlayer = findNearestPlayer()
+            if not closestPlayer then
+                print("No player found to throw at.")
                 return
             end
-        end
 
-        local closestPlayer = findNearestPlayer()
-        if not closestPlayer then
-            print("No player found to throw at.")
-            return
-        end
+            local closestPlayerHRP = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if not closestPlayerHRP then
+                print("Could not find the closest player's HumanoidRootPart.")
+                return
+            end
 
-        local closestPlayerHRP = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
-        if not closestPlayerHRP then
-            print("Could not find the closest player's HumanoidRootPart.")
-            return
-        end
+            -- Raycast to check for walls
+            local origin = localplayer.Character:FindFirstChild("HumanoidRootPart").Position
+            local direction = (closestPlayerHRP.Position - origin).Unit * (closestPlayerHRP.Position - origin).Magnitude
+            local ray = Ray.new(origin, direction)
+            local hit, position = workspace:FindPartOnRay(ray, localplayer.Character, false, true)
+            
+            if hit and hit:IsDescendantOf(closestPlayer.Character) then
+                -- First, simulate the knife coming towards the local player from the target player
+                local intermediatePosition = origin + direction.Unit * 5  -- Adjust this value as needed
+                local argsFirstThrow = {
+                    [1] = CFrame.new(closestPlayerHRP.Position), 
+                    [2] = origin
+                }
 
-        -- Raycast to check for walls
-        local origin = localplayer.Character:FindFirstChild("HumanoidRootPart").Position
-        local direction = (closestPlayerHRP.Position - origin).Unit * (closestPlayerHRP.Position - origin).Magnitude
-        local ray = Ray.new(origin, direction)
-        local hit, position = workspace:FindPartOnRay(ray, localplayer.Character, false, true)
-        
-        if hit and hit:IsDescendantOf(closestPlayer.Character) then
-            local predictedPosition = getPredictedPosition(closestPlayer, shootOffset * 4)
+                localplayer.Character.Knife.Throw:FireServer(unpack(argsFirstThrow))
 
-            local args = {
-                [1] = CFrame.new(origin), 
-                [2] = predictedPosition
-            }
+                -- Wait for a short moment before throwing the knife to the target player
+                wait(0.1)  -- Adjust the wait time as needed
 
-            localplayer.Character.Knife.Throw:FireServer(unpack(args))
+                local argsSecondThrow = {
+                    [1] = CFrame.new(origin), 
+                    [2] = closestPlayerHRP.Position
+                }
+
+                localplayer.Character.Knife.Throw:FireServer(unpack(argsSecondThrow))
+            else
+                print("Target is behind a wall.")
+            end
         else
-            print("Target is behind a wall.")
+            print("Please enter a valid password.")
         end
     end}
 }
