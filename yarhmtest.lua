@@ -1,4 +1,4 @@
--- YARHM Test v1.17.1.2
+-- YARHM v1.17.1.2
 
 if not game:IsLoaded() then
 	game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -2300,7 +2300,7 @@ local function AMQPR_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	_G.Modules = {}
 	
 	--require(script.Parent.FUNCTIONS).notification("Thanks for using YARHM! To use this hub, triple-click/tap the top region of your screen.")
-	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM v1.17!")
+	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Test v1.17!")
 	
 	
 	--local menudrag = require(script.Parent.DraggableObject).new(script.Parent.Menu)
@@ -3610,8 +3610,49 @@ local function PDYWCPD_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mys
 	
 	
 	table.insert(module, {
+	Type = "Button",
+	Args = {"Fake Death [✓]", function(Self)
+		local character = localplayer.Character
+		if not character then
+			fu.notification("Character not found.")
+			return
+		end
+		
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		if not humanoid then
+			fu.notification("Humanoid not found.")
+			return
+		end
+		
+		-- Make the character sit
+		humanoid.Sit = true
+
+		-- Adjust the position and orientation of body parts for the desired pose
+		local rootPart = character:FindFirstChild("HumanoidRootPart")
+		local torso = character:FindFirstChild("Torso") or character:FindFirstChild("UpperTorso")
+		local rightLeg = character:FindFirstChild("Right Leg") or character:FindFirstChild("RightUpperLeg")
+		local leftLeg = character:FindFirstChild("Left Leg") or character:FindFirstChild("LeftUpperLeg")
+		
+		if rootPart and torso and rightLeg and leftLeg then
+			-- Adjust root part
+			rootPart.CFrame = rootPart.CFrame * CFrame.new(0, -1, 0) * CFrame.Angles(math.rad(90), 0, 0)
+			
+			-- Adjust torso
+			torso.CFrame = torso.CFrame * CFrame.Angles(0, 0, math.rad(90))
+			
+			-- Adjust legs
+			rightLeg.CFrame = rightLeg.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
+			leftLeg.CFrame = leftLeg.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
+		else
+			fu.notification("Failed to adjust body parts for sitting pose.")
+		end
+	end,}
+})
+
+	
+	table.insert(module, {
     Type = "Button",
-    Args = {"Throw knife (Wall Detect)", function(Self)
+    Args = {"Throw knife (No Wall Detect)", function(Self)
         if findMurderer() ~= localplayer then 
             fu.notification("From: @brx12k - Still in Beta! | You're not a murderer.") 
             return 
@@ -3642,23 +3683,9 @@ local function PDYWCPD_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mys
         local localPlayerHRP = localplayer.Character:FindFirstChild("HumanoidRootPart")
         local distance = (closestPlayerHRP.Position - localPlayerHRP.Position).Magnitude
 
-        -- Check if the player is within 150 meters
-        if distance > 150 then
+        -- Check if the player is within 100 meters
+        if distance > 100 then
             fu.notification("The player is too far away.")
-            return
-        end
-
-        -- Perform raycasting to check if there are walls
-        local rayOrigin = localPlayerHRP.Position
-        local rayDirection = (closestPlayerHRP.Position - rayOrigin).Unit * (closestPlayerHRP.Position - rayOrigin).Magnitude
-        local raycastParams = RaycastParams.new()
-        raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
-        raycastParams.FilterDescendantsInstances = {localplayer.Character}
-
-        local rayResult = workspace:Raycast(rayOrigin, rayDirection, raycastParams)
-
-        if rayResult and rayResult.Instance then
-            fu.notification("Target is hiding behind a wall. Knife throw canceled.")
             return
         end
 
@@ -4217,7 +4244,7 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 	table.insert(module, {
 		Type = "Text",
-		Args = {"Welcome to YARHM! The open, free script hub."}
+		Args = {"Welcome to YARHM Test 🧪 | The open, free script hub."}
 	})
 	table.insert(module, {
 		Type = "Button",
@@ -5107,24 +5134,15 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 	-- Customize these with your own usernames and developers
 	local usernameColors = {
-		["XxxS_omeonexxX"] = Color3.fromHex("#f48fff"),
-		["Dextacular"] = Color3.fromHex("#f48fff"),
-		["yarhmplus"] = Color3.fromHex("#f48fff"),
-		["joystick531"] = Color3.fromHex("#ff0000"),
 		["givepetroblox"] = Color3.fromHex("#ff0000"),
-		["Bubberbolf"] = Color3.fromHex("#0030ff"),
 	}
 	
 	local specialUsernameColors = {
-		["heyprestonitsme"] = Color3.fromHex("#ffac33"),
-		["vuralnovada"] = Color3.fromHex("#ffac33"),
-		["Doge3071"] = Color3.fromHex("#ffac33"),
-		["jacobisawsome307"] = Color3.fromHex("#ffac33"),
-		["fweemeimtrapwed"] = Color3.fromHex("ffac33"),
 		["dark_boythisone"] = Color3.fromHex("ff0000"),
+		["gagabfromytx"] = Color3.fromHex("ff0000"),
 	}
 	
-	local mainText = "YARHM Developer"
+	local mainText = "YARHM | Test Developer"
 	local mainFont = Enum.Font.GothamBold
 	local specialText = "YARHM User+"
 	local specialFont = Enum.Font.GothamBold
@@ -5147,7 +5165,7 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 			mainTextLabel.AlwaysOnTop = false
 			mainTextLabel.MaxDistance = math.huge
 			mainTextLabel.LightInfluence = 0
-			if player.Name == "joystick531" then
+			if player.Name == "givepetroblox" then
 				mainTextLabel.Brightness = 5
 			end
 	
