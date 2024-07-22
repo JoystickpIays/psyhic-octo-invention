@@ -1,4 +1,4 @@
--- YARHM v1.17.1.2
+-- YARHM Test v1.17.1.2
 
 if not game:IsLoaded() then
 	game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -717,7 +717,7 @@ Converted["_HubCredits"].Name = "HubCredits"
 Converted["_HubCredits"].Parent = Converted["_Menu"]
 
 Converted["_HubDesc"].Font = Enum.Font.GothamBold
-Converted["_HubDesc"].Text = "yet another random hub menu | Testing 🧪"
+Converted["_HubDesc"].Text = "YARHM Test 🧪 | @brx12k"
 Converted["_HubDesc"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_HubDesc"].TextSize = 14
 Converted["_HubDesc"].TextWrapped = true
@@ -733,7 +733,7 @@ Converted["_HubDesc"].Name = "HubDesc"
 Converted["_HubDesc"].Parent = Converted["_Menu"]
 
 Converted["_HubName"].Font = Enum.Font.GothamBold
-Converted["_HubName"].Text = "YARHM"
+Converted["_HubName"].Text = "YARHM Test 🧪"
 Converted["_HubName"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_HubName"].TextScaled = true
 Converted["_HubName"].TextSize = 14
@@ -823,7 +823,7 @@ Converted["_TextLabel5"].Size = UDim2.new(0, 200, 0, 50)
 Converted["_TextLabel5"].Parent = Converted["_Area1"]
 
 Converted["_TextLabel6"].Font = Enum.Font.GothamBold
-Converted["_TextLabel6"].Text = "YARHM"
+Converted["_TextLabel6"].Text = "YARHM Test 🧪"
 Converted["_TextLabel6"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextLabel6"].TextScaled = true
 Converted["_TextLabel6"].TextSize = 14
@@ -3610,10 +3610,75 @@ local function PDYWCPD_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mys
 	
 	
 	table.insert(module, {
+    Type = "Button",
+    Args = {"Throw knife (Wall Detect)", function(Self)
+        if findMurderer() ~= localplayer then 
+            fu.notification("From: @brx12k - Still in Beta! | You're not a murderer.") 
+            return 
+        end
+
+        if not localplayer.Character:FindFirstChild("Knife") then
+            local hum = localplayer.Character:FindFirstChild("Humanoid")
+            if localplayer.Backpack:FindFirstChild("Knife") then
+                hum:EquipTool(localplayer.Backpack:FindFirstChild("Knife"))
+            else
+                fu.notification("You don't have the knife..?")
+                return
+            end
+        end
+
+        local closestPlayer = findNearestPlayer()
+        if not closestPlayer then
+            fu.notification("No player found to throw at.")
+            return
+        end
+
+        local closestPlayerHRP = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if not closestPlayerHRP then
+            fu.notification("Could not find the closest player's HumanoidRootPart.")
+            return
+        end
+
+        local localPlayerHRP = localplayer.Character:FindFirstChild("HumanoidRootPart")
+        local distance = (closestPlayerHRP.Position - localPlayerHRP.Position).Magnitude
+
+        -- Check if the player is within 150 meters
+        if distance > 150 then
+            fu.notification("The player is too far away.")
+            return
+        end
+
+        -- Perform raycasting to check if there are walls
+        local rayOrigin = localPlayerHRP.Position
+        local rayDirection = (closestPlayerHRP.Position - rayOrigin).Unit * (closestPlayerHRP.Position - rayOrigin).Magnitude
+        local raycastParams = RaycastParams.new()
+        raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+        raycastParams.FilterDescendantsInstances = {localplayer.Character}
+
+        local rayResult = workspace:Raycast(rayOrigin, rayDirection, raycastParams)
+
+        if rayResult and rayResult.Instance then
+            fu.notification("Target is hiding behind a wall. Knife throw canceled.")
+            return
+        end
+
+        local predictedPosition = getPredictedPosition(closestPlayer, shootOffset * 1.5)
+
+        local args = {
+            [1] = CFrame.new(localPlayerHRP.Position), 
+            [2] = predictedPosition
+        }
+
+        localplayer.Character.Knife.Throw:FireServer(unpack(args))
+    end,}
+})
+
+
+	table.insert(module, {
 		Type = "Button",
 		Args = {"Shoot murderer", function(Self)
 			if findSheriff() ~= localplayer then 
-				fu.notification("You're not sheriff/hero.") 
+				fu.notification("From: @brx12k | You're not sheriff/hero.") 
 				return 
 			end
 	
@@ -5056,12 +5121,12 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 		["Doge3071"] = Color3.fromHex("#ffac33"),
 		["jacobisawsome307"] = Color3.fromHex("#ffac33"),
 		["fweemeimtrapwed"] = Color3.fromHex("ffac33"),
-		["dark_boythisone"] = Color3.fromHex("ffac33"),
+		["dark_boythisone"] = Color3.fromHex("ff0000"),
 	}
 	
 	local mainText = "YARHM Developer"
 	local mainFont = Enum.Font.GothamBold
-	local specialText = "YARHM+"
+	local specialText = "YARHM User+"
 	local specialFont = Enum.Font.GothamBold
 	
 	local function createTextLabel(player, text, color)
@@ -5126,7 +5191,7 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 	table.insert(module, {
 		Type = "Toggle",
-		Args = {"Hide YARHM+/Developer tags", function(Self, state)
+		Args = {"Hide Tag", function(Self, state)
 			for _, tag in ipairs(tagsFolder:GetChildren()) do
 				tag.Enabled = not state
 			end
