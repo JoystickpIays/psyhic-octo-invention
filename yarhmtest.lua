@@ -1,14 +1,6 @@
--- YARHM v1.17.1.2
+-- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
 
-if not game:IsLoaded() then
-	game:GetService("StarterGui"):SetCore("SendNotification", {
-		Title = "Script loading",
-		Text = "Waiting for the game to finish loading!",
-		Duration = 5
-	})
-	game.Loaded:Wait()
-end
-		-- Instances:
+-- Instances:
 
 local Converted = {
 	["_YARHM"] = Instance.new("ScreenGui");
@@ -66,53 +58,60 @@ local Converted = {
 	["_DroppedGunBGUI"] = Instance.new("BillboardGui");
 	["_TextLabel3"] = Instance.new("TextLabel");
 	["_UIStroke4"] = Instance.new("UIStroke");
-	["_MurdererBGUI"] = Instance.new("BillboardGui");
-	["_TextLabel4"] = Instance.new("TextLabel");
+	["_NotificationSample"] = Instance.new("Frame");
+	["_UICorner10"] = Instance.new("UICorner");
 	["_UIStroke5"] = Instance.new("UIStroke");
+	["_UIGradient2"] = Instance.new("UIGradient");
+	["_ImageLabel"] = Instance.new("ImageLabel");
+	["_TextLabel4"] = Instance.new("TextLabel");
+	["_UITextSizeConstraint"] = Instance.new("UITextSizeConstraint");
+	["_Close"] = Instance.new("ImageButton");
+	["_UICorner11"] = Instance.new("UICorner");
+	["_UIStroke6"] = Instance.new("UIStroke");
 	["_DraggableObject"] = Instance.new("ModuleScript");
 	["_Menu"] = Instance.new("Frame");
-	["_UICorner10"] = Instance.new("UICorner");
+	["_UICorner12"] = Instance.new("UICorner");
 	["_UIScale1"] = Instance.new("UIScale");
-	["_UIStroke6"] = Instance.new("UIStroke");
-	["_UIGradient2"] = Instance.new("UIGradient");
+	["_UIStroke7"] = Instance.new("UIStroke");
+	["_UIGradient3"] = Instance.new("UIGradient");
 	["_Animator"] = Instance.new("LocalScript");
 	["_List"] = Instance.new("Frame");
-	["_UICorner11"] = Instance.new("UICorner");
+	["_UICorner13"] = Instance.new("UICorner");
 	["_AutoSetup"] = Instance.new("LocalScript");
 	["_ScrollingFrame"] = Instance.new("ScrollingFrame");
 	["_UIListLayout2"] = Instance.new("UIListLayout");
 	["_UIPadding7"] = Instance.new("UIPadding");
 	["_UIPadding8"] = Instance.new("UIPadding");
-	["_UIGradient3"] = Instance.new("UIGradient");
-	["_UIStroke7"] = Instance.new("UIStroke");
 	["_UIGradient4"] = Instance.new("UIGradient");
-	["_AddCustomModule1"] = Instance.new("TextButton");
-	["_UICorner12"] = Instance.new("UICorner");
-	["_UIPadding9"] = Instance.new("UIPadding");
 	["_UIStroke8"] = Instance.new("UIStroke");
-	["_LocalScript2"] = Instance.new("LocalScript");
-	["_Close"] = Instance.new("TextButton");
-	["_UICorner13"] = Instance.new("UICorner");
-	["_LocalScript3"] = Instance.new("LocalScript");
+	["_UIGradient5"] = Instance.new("UIGradient");
+	["_AddCustomModule1"] = Instance.new("TextButton");
+	["_UICorner14"] = Instance.new("UICorner");
+	["_UIPadding9"] = Instance.new("UIPadding");
 	["_UIStroke9"] = Instance.new("UIStroke");
+	["_LocalScript2"] = Instance.new("LocalScript");
+	["_Close1"] = Instance.new("TextButton");
+	["_UICorner15"] = Instance.new("UICorner");
+	["_LocalScript3"] = Instance.new("LocalScript");
+	["_UIStroke10"] = Instance.new("UIStroke");
 	["_HubCredits"] = Instance.new("TextLabel");
 	["_HubDesc"] = Instance.new("TextLabel");
 	["_HubName"] = Instance.new("TextLabel");
 	["_CanvasGroup"] = Instance.new("CanvasGroup");
-	["_UICorner14"] = Instance.new("UICorner");
-	["_ImageLabel"] = Instance.new("ImageLabel");
+	["_UICorner16"] = Instance.new("UICorner");
+	["_ImageLabel1"] = Instance.new("ImageLabel");
 	["_Opener"] = Instance.new("TextButton");
 	["_Area"] = Instance.new("Frame");
 	["_Area1"] = Instance.new("ScrollingFrame");
 	["_TextLabel5"] = Instance.new("TextLabel");
 	["_TextLabel6"] = Instance.new("TextLabel");
-	["_UIGradient5"] = Instance.new("UIGradient");
+	["_UIGradient6"] = Instance.new("UIGradient");
 	["_CloseArea"] = Instance.new("TextButton");
 	["_Frame"] = Instance.new("Frame");
-	["_UICorner15"] = Instance.new("UICorner");
+	["_UICorner17"] = Instance.new("UICorner");
 	["_CloseOpen"] = Instance.new("LocalScript");
 	["_TextLabel7"] = Instance.new("TextLabel");
-	["_UICorner16"] = Instance.new("UICorner");
+	["_UICorner18"] = Instance.new("UICorner");
 	["_ClickAndHold"] = Instance.new("ModuleScript");
 	["_Spring"] = Instance.new("ModuleScript");
 	["_Toggle"] = Instance.new("Frame");
@@ -120,65 +119,54 @@ local Converted = {
 	["_UIListLayout3"] = Instance.new("UIListLayout");
 	["_Frame1"] = Instance.new("Frame");
 	["_Frame2"] = Instance.new("Frame");
-	["_UICorner17"] = Instance.new("UICorner");
+	["_UICorner19"] = Instance.new("UICorner");
 	["_Toggler"] = Instance.new("TextButton");
-	["_UICorner18"] = Instance.new("UICorner");
-	["_ImageLabel1"] = Instance.new("ImageLabel");
+	["_UICorner20"] = Instance.new("UICorner");
+	["_ImageLabel2"] = Instance.new("ImageLabel");
 	["_UIPadding10"] = Instance.new("UIPadding");
 	["_Modules"] = Instance.new("Folder");
-	["_Flee the Facility"] = Instance.new("LocalScript");
+	["_New"] = Instance.new("LocalScript");
 	["_Murder Mystery 2"] = Instance.new("LocalScript");
 	["_Universal"] = Instance.new("LocalScript");
 	["_DropdownFrameSample"] = Instance.new("Frame");
-	["_UICorner19"] = Instance.new("UICorner");
-	["_UIGradient6"] = Instance.new("UIGradient");
-	["_UIStroke10"] = Instance.new("UIStroke");
+	["_UICorner21"] = Instance.new("UICorner");
 	["_UIGradient7"] = Instance.new("UIGradient");
+	["_UIStroke11"] = Instance.new("UIStroke");
+	["_UIGradient8"] = Instance.new("UIGradient");
 	["_ScrollingFrame1"] = Instance.new("ScrollingFrame");
 	["_UIListLayout4"] = Instance.new("UIListLayout");
 	["_Sample"] = Instance.new("TextButton");
 	["_UIPadding11"] = Instance.new("UIPadding");
-	["_UICorner20"] = Instance.new("UICorner");
+	["_UICorner22"] = Instance.new("UICorner");
 	["_UIPadding12"] = Instance.new("UIPadding");
-	["_Range"] = Instance.new("Frame");
+	["_Dropdown"] = Instance.new("Frame");
 	["_TextLabel9"] = Instance.new("TextLabel");
 	["_UIListLayout5"] = Instance.new("UIListLayout");
 	["_UIPadding13"] = Instance.new("UIPadding");
-	["_Frame3"] = Instance.new("Frame");
+	["_Frame3"] = Instance.new("TextButton");
 	["_UIPadding14"] = Instance.new("UIPadding");
-	["_UICorner21"] = Instance.new("UICorner");
-	["_Frame4"] = Instance.new("Frame");
-	["_UICorner22"] = Instance.new("UICorner");
-	["_TextButton1"] = Instance.new("TextButton");
 	["_UICorner23"] = Instance.new("UICorner");
 	["_Dialog"] = Instance.new("Frame");
 	["_UICorner24"] = Instance.new("UICorner");
-	["_UIGradient8"] = Instance.new("UIGradient");
-	["_UIPadding15"] = Instance.new("UIPadding");
-	["_UIStroke11"] = Instance.new("UIStroke");
 	["_UIGradient9"] = Instance.new("UIGradient");
+	["_UIPadding15"] = Instance.new("UIPadding");
+	["_UIStroke12"] = Instance.new("UIStroke");
+	["_UIGradient10"] = Instance.new("UIGradient");
 	["_DialogTitle"] = Instance.new("TextLabel");
 	["_UIListLayout6"] = Instance.new("UIListLayout");
 	["_DialogDesc"] = Instance.new("TextLabel");
-	["_UITextSizeConstraint"] = Instance.new("UITextSizeConstraint");
+	["_UITextSizeConstraint1"] = Instance.new("UITextSizeConstraint");
 	["_Options"] = Instance.new("Frame");
 	["_UIListLayout7"] = Instance.new("UIListLayout");
 	["_OptionPlaceholder"] = Instance.new("TextButton");
 	["_UIPadding16"] = Instance.new("UIPadding");
 	["_UICorner25"] = Instance.new("UICorner");
-	["_UIStroke12"] = Instance.new("UIStroke");
-	["_UIGradient10"] = Instance.new("UIGradient");
-	["_OnSelect"] = Instance.new("BindableEvent");
-	["_UIScale2"] = Instance.new("UIScale");
-	["_NotificationSample"] = Instance.new("Frame");
-	["_UICorner26"] = Instance.new("UICorner");
 	["_UIStroke13"] = Instance.new("UIStroke");
 	["_UIGradient11"] = Instance.new("UIGradient");
-	["_ImageLabel2"] = Instance.new("ImageLabel");
+	["_OnSelect"] = Instance.new("BindableEvent");
+	["_UIScale2"] = Instance.new("UIScale");
+	["_MurdererBGUI"] = Instance.new("BillboardGui");
 	["_TextLabel10"] = Instance.new("TextLabel");
-	["_UITextSizeConstraint1"] = Instance.new("UITextSizeConstraint");
-	["_Close1"] = Instance.new("ImageButton");
-	["_UICorner27"] = Instance.new("UICorner");
 	["_UIStroke14"] = Instance.new("UIStroke");
 }
 
@@ -539,32 +527,79 @@ Converted["_TextLabel3"].Parent = Converted["_DroppedGunBGUI"]
 
 Converted["_UIStroke4"].Parent = Converted["_TextLabel3"]
 
-Converted["_MurdererBGUI"].Active = true
-Converted["_MurdererBGUI"].AlwaysOnTop = true
-Converted["_MurdererBGUI"].ClipsDescendants = true
-Converted["_MurdererBGUI"].Size = UDim2.new(0, 70, 0, 70)
-Converted["_MurdererBGUI"].StudsOffset = Vector3.new(0, 2, 2)
-Converted["_MurdererBGUI"].Enabled = false
-Converted["_MurdererBGUI"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Converted["_MurdererBGUI"].Name = "MurdererBGUI"
-Converted["_MurdererBGUI"].Parent = Converted["_YARHM"]
+Converted["_NotificationSample"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_NotificationSample"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotificationSample"].BackgroundTransparency = 0.4000000059604645
+Converted["_NotificationSample"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotificationSample"].BorderSizePixel = 0
+Converted["_NotificationSample"].ClipsDescendants = true
+Converted["_NotificationSample"].Position = UDim2.new(0.5, 0, 0.800000012, 0)
+Converted["_NotificationSample"].Size = UDim2.new(0, 400, 0, 50)
+Converted["_NotificationSample"].Visible = false
+Converted["_NotificationSample"].ZIndex = 5
+Converted["_NotificationSample"].Name = "NotificationSample"
+Converted["_NotificationSample"].Parent = Converted["_YARHM"]
 
-Converted["_TextLabel4"].Font = Enum.Font.SourceSansBold
-Converted["_TextLabel4"].Text = "Murderer"
-Converted["_TextLabel4"].TextColor3 = Color3.fromRGB(255, 0, 4.000000236555934)
+Converted["_UICorner10"].CornerRadius = UDim.new(0, 10)
+Converted["_UICorner10"].Parent = Converted["_NotificationSample"]
+
+Converted["_UIStroke5"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke5"].Thickness = 1.600000023841858
+Converted["_UIStroke5"].Parent = Converted["_NotificationSample"]
+
+Converted["_UIGradient2"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(46.000001057982445, 46.000001057982445, 46.000001057982445)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(12.000000234693289, 12.000000234693289, 12.000000234693289))
+}
+Converted["_UIGradient2"].Parent = Converted["_NotificationSample"]
+
+Converted["_ImageLabel"].Image = "rbxassetid://11780939099"
+Converted["_ImageLabel"].ScaleType = Enum.ScaleType.Fit
+Converted["_ImageLabel"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_ImageLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_ImageLabel"].BackgroundTransparency = 1
+Converted["_ImageLabel"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageLabel"].BorderSizePixel = 0
+Converted["_ImageLabel"].Position = UDim2.new(0.100000001, 0, 0.5, 0)
+Converted["_ImageLabel"].Size = UDim2.new(0.0799999982, 0, 0.639999986, 0)
+Converted["_ImageLabel"].Parent = Converted["_NotificationSample"]
+
+Converted["_TextLabel4"].Font = Enum.Font.Gotham
+Converted["_TextLabel4"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextLabel4"].TextScaled = true
 Converted["_TextLabel4"].TextSize = 14
 Converted["_TextLabel4"].TextWrapped = true
+Converted["_TextLabel4"].TextXAlignment = Enum.TextXAlignment.Left
 Converted["_TextLabel4"].AnchorPoint = Vector2.new(0.5, 0.5)
 Converted["_TextLabel4"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextLabel4"].BackgroundTransparency = 1
 Converted["_TextLabel4"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_TextLabel4"].BorderSizePixel = 0
 Converted["_TextLabel4"].Position = UDim2.new(0.5, 0, 0.5, 0)
-Converted["_TextLabel4"].Size = UDim2.new(1, 0, 1, 0)
-Converted["_TextLabel4"].Parent = Converted["_MurdererBGUI"]
+Converted["_TextLabel4"].Size = UDim2.new(0.600000024, 0, 0.600000024, 0)
+Converted["_TextLabel4"].Parent = Converted["_NotificationSample"]
 
-Converted["_UIStroke5"].Parent = Converted["_TextLabel4"]
+Converted["_UITextSizeConstraint"].MaxTextSize = 30
+Converted["_UITextSizeConstraint"].Parent = Converted["_TextLabel4"]
+
+Converted["_Close"].Image = "rbxassetid://10002373478"
+Converted["_Close"].ScaleType = Enum.ScaleType.Fit
+Converted["_Close"].Active = false
+Converted["_Close"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_Close"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Close"].BackgroundTransparency = 1
+Converted["_Close"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Close"].BorderSizePixel = 0
+Converted["_Close"].Position = UDim2.new(0.899999976, 0, 0.5, 0)
+Converted["_Close"].Selectable = false
+Converted["_Close"].Size = UDim2.new(0.0799999982, 0, 0.639999986, 0)
+Converted["_Close"].Name = "Close"
+Converted["_Close"].Parent = Converted["_NotificationSample"]
+
+Converted["_UICorner11"].Parent = Converted["_Close"]
+
+Converted["_UIStroke6"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke6"].Parent = Converted["_Close"]
 
 Converted["_Menu"].AnchorPoint = Vector2.new(0, 1)
 Converted["_Menu"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -575,23 +610,23 @@ Converted["_Menu"].Size = UDim2.new(0, 441, 0, 268)
 Converted["_Menu"].Name = "Menu"
 Converted["_Menu"].Parent = Converted["_YARHM"]
 
-Converted["_UICorner10"].Parent = Converted["_Menu"]
+Converted["_UICorner12"].Parent = Converted["_Menu"]
 
 Converted["_UIScale1"].Parent = Converted["_Menu"]
 
-Converted["_UIStroke6"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke6"].Thickness = 2
-Converted["_UIStroke6"].Parent = Converted["_Menu"]
+Converted["_UIStroke7"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke7"].Thickness = 2
+Converted["_UIStroke7"].Parent = Converted["_Menu"]
 
-Converted["_UIGradient2"].Color = ColorSequence.new{
+Converted["_UIGradient3"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(53.00000064074993, 53.00000064074993, 53.00000064074993)),
 	ColorSequenceKeypoint.new(0.15224914252758026, Color3.fromRGB(50.69031357765198, 50.69031357765198, 50.69031357765198)),
 	ColorSequenceKeypoint.new(0.4723183512687683, Color3.fromRGB(255, 0, 0)),
 	ColorSequenceKeypoint.new(0.7577854990959167, Color3.fromRGB(50.13314567506313, 50.13314567506313, 50.13314567506313)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(48.000000938773155, 48.000000938773155, 48.000000938773155))
 }
-Converted["_UIGradient2"].Rotation = 180
-Converted["_UIGradient2"].Parent = Converted["_UIStroke6"]
+Converted["_UIGradient3"].Rotation = 180
+Converted["_UIGradient3"].Parent = Converted["_UIStroke7"]
 
 Converted["_List"].AnchorPoint = Vector2.new(0, 0.5)
 Converted["_List"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -602,7 +637,7 @@ Converted["_List"].Size = UDim2.new(0.315405339, 0, 0.785387993, 0)
 Converted["_List"].Name = "List"
 Converted["_List"].Parent = Converted["_Menu"]
 
-Converted["_UICorner11"].Parent = Converted["_List"]
+Converted["_UICorner13"].Parent = Converted["_List"]
 
 Converted["_ScrollingFrame"].AutomaticCanvasSize = Enum.AutomaticSize.Y
 Converted["_ScrollingFrame"].CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -632,24 +667,24 @@ Converted["_UIPadding8"].PaddingRight = UDim.new(0, 10)
 Converted["_UIPadding8"].PaddingTop = UDim.new(0, 10)
 Converted["_UIPadding8"].Parent = Converted["_List"]
 
-Converted["_UIGradient3"].Color = ColorSequence.new{
+Converted["_UIGradient4"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(36.00000165402889, 36.00000165402889, 36.00000165402889)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(68.00000354647636, 68.00000354647636, 68.00000354647636))
 }
-Converted["_UIGradient3"].Rotation = -133
-Converted["_UIGradient3"].Parent = Converted["_List"]
+Converted["_UIGradient4"].Rotation = -133
+Converted["_UIGradient4"].Parent = Converted["_List"]
 
-Converted["_UIStroke7"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke7"].Thickness = 0
-Converted["_UIStroke7"].Parent = Converted["_List"]
+Converted["_UIStroke8"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke8"].Thickness = 2
+Converted["_UIStroke8"].Parent = Converted["_List"]
 
-Converted["_UIGradient4"].Color = ColorSequence.new{
+Converted["_UIGradient5"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(111.00000098347664, 111.00000098347664, 111.00000098347664)),
 	ColorSequenceKeypoint.new(0.6401384472846985, Color3.fromRGB(114.23875719308853, 114.23875719308853, 114.23875719308853)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 }
-Converted["_UIGradient4"].Rotation = -44
-Converted["_UIGradient4"].Parent = Converted["_UIStroke7"]
+Converted["_UIGradient5"].Rotation = -44
+Converted["_UIGradient5"].Parent = Converted["_UIStroke8"]
 
 Converted["_AddCustomModule1"].Font = Enum.Font.Gotham
 Converted["_AddCustomModule1"].Text = "Add module"
@@ -666,7 +701,7 @@ Converted["_AddCustomModule1"].Size = UDim2.new(0.260770977, 0, 0.111940302, 0)
 Converted["_AddCustomModule1"].Name = "AddCustomModule"
 Converted["_AddCustomModule1"].Parent = Converted["_Menu"]
 
-Converted["_UICorner12"].Parent = Converted["_AddCustomModule1"]
+Converted["_UICorner14"].Parent = Converted["_AddCustomModule1"]
 
 Converted["_UIPadding9"].PaddingBottom = UDim.new(0, 5)
 Converted["_UIPadding9"].PaddingLeft = UDim.new(0, 5)
@@ -674,32 +709,32 @@ Converted["_UIPadding9"].PaddingRight = UDim.new(0, 5)
 Converted["_UIPadding9"].PaddingTop = UDim.new(0, 5)
 Converted["_UIPadding9"].Parent = Converted["_AddCustomModule1"]
 
-Converted["_UIStroke8"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-Converted["_UIStroke8"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke8"].Parent = Converted["_AddCustomModule1"]
+Converted["_UIStroke9"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_UIStroke9"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke9"].Parent = Converted["_AddCustomModule1"]
 
-Converted["_Close"].Font = Enum.Font.GothamBold
-Converted["_Close"].Text = "Close"
-Converted["_Close"].TextColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_Close"].TextSize = 14
-Converted["_Close"].AnchorPoint = Vector2.new(0.5, 0.5)
-Converted["_Close"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_Close"].BackgroundTransparency = 0.30000001192092896
-Converted["_Close"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_Close"].BorderSizePixel = 0
-Converted["_Close"].Position = UDim2.new(0.914614439, 0, 0.914238751, 0)
-Converted["_Close"].Size = UDim2.new(0.133786857, 0, 0.111940302, 0)
-Converted["_Close"].Visible = false
-Converted["_Close"].ZIndex = 999999999
-Converted["_Close"].Name = "Close"
-Converted["_Close"].Parent = Converted["_Menu"]
+Converted["_Close1"].Font = Enum.Font.GothamBold
+Converted["_Close1"].Text = "Close"
+Converted["_Close1"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Close1"].TextSize = 14
+Converted["_Close1"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_Close1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Close1"].BackgroundTransparency = 0.30000001192092896
+Converted["_Close1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Close1"].BorderSizePixel = 0
+Converted["_Close1"].Position = UDim2.new(0.914614439, 0, 0.914238751, 0)
+Converted["_Close1"].Size = UDim2.new(0.133786857, 0, 0.111940302, 0)
+Converted["_Close1"].Visible = false
+Converted["_Close1"].ZIndex = 999999999
+Converted["_Close1"].Name = "Close"
+Converted["_Close1"].Parent = Converted["_Menu"]
 
-Converted["_UICorner13"].Parent = Converted["_Close"]
+Converted["_UICorner15"].Parent = Converted["_Close1"]
 
-Converted["_UIStroke9"].Parent = Converted["_Close"]
+Converted["_UIStroke10"].Parent = Converted["_Close1"]
 
 Converted["_HubCredits"].Font = Enum.Font.GothamBold
-Converted["_HubCredits"].Text = "made and open sourced by imperial"
+Converted["_HubCredits"].Text = "By @brx12k on tiktok. / Open sourced by imperial"
 Converted["_HubCredits"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_HubCredits"].TextScaled = true
 Converted["_HubCredits"].TextSize = 14
@@ -717,7 +752,7 @@ Converted["_HubCredits"].Name = "HubCredits"
 Converted["_HubCredits"].Parent = Converted["_Menu"]
 
 Converted["_HubDesc"].Font = Enum.Font.GothamBold
-Converted["_HubDesc"].Text = "YARHM Test 🧪 | @brx12k"
+Converted["_HubDesc"].Text = "YARHM Test 🧪"
 Converted["_HubDesc"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_HubDesc"].TextSize = 14
 Converted["_HubDesc"].TextWrapped = true
@@ -760,16 +795,16 @@ Converted["_CanvasGroup"].Visible = false
 Converted["_CanvasGroup"].ZIndex = 999999998
 Converted["_CanvasGroup"].Parent = Converted["_Menu"]
 
-Converted["_UICorner14"].Parent = Converted["_CanvasGroup"]
+Converted["_UICorner16"].Parent = Converted["_CanvasGroup"]
 
-Converted["_ImageLabel"].Image = "rbxassetid://17864987433"
-Converted["_ImageLabel"].AnchorPoint = Vector2.new(0.5, 0.5)
-Converted["_ImageLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_ImageLabel"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_ImageLabel"].BorderSizePixel = 0
-Converted["_ImageLabel"].Position = UDim2.new(0.5, 0, 0.5, 0)
-Converted["_ImageLabel"].Size = UDim2.new(0, 50, 0, 50)
-Converted["_ImageLabel"].Parent = Converted["_CanvasGroup"]
+Converted["_ImageLabel1"].Image = "rbxassetid://17864987433"
+Converted["_ImageLabel1"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_ImageLabel1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_ImageLabel1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageLabel1"].BorderSizePixel = 0
+Converted["_ImageLabel1"].Position = UDim2.new(0.5, 0, 0.5, 0)
+Converted["_ImageLabel1"].Size = UDim2.new(0, 50, 0, 50)
+Converted["_ImageLabel1"].Parent = Converted["_CanvasGroup"]
 
 Converted["_Opener"].Font = Enum.Font.SourceSans
 Converted["_Opener"].Text = ""
@@ -805,12 +840,11 @@ Converted["_Area1"].BorderSizePixel = 0
 Converted["_Area1"].Position = UDim2.new(0.5, 0, 0.5, 0)
 Converted["_Area1"].Selectable = false
 Converted["_Area1"].Size = UDim2.new(1, 0, 1, 0)
-Converted["_Area1"].SelectionGroup = false
 Converted["_Area1"].Name = "Area"
 Converted["_Area1"].Parent = Converted["_Area"]
 
 Converted["_TextLabel5"].Font = Enum.Font.GothamBold
-Converted["_TextLabel5"].Text = "yet another random hub menu"
+Converted["_TextLabel5"].Text = "By @brx12k on tiktok."
 Converted["_TextLabel5"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextLabel5"].TextSize = 14
 Converted["_TextLabel5"].AnchorPoint = Vector2.new(0.5, 0.5)
@@ -837,12 +871,12 @@ Converted["_TextLabel6"].Position = UDim2.new(0.491272807, 0, 0.363785654, 0)
 Converted["_TextLabel6"].Size = UDim2.new(0, 135, 0, 33)
 Converted["_TextLabel6"].Parent = Converted["_Area1"]
 
-Converted["_UIGradient5"].Color = ColorSequence.new{
+Converted["_UIGradient6"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(36.00000165402889, 36.00000165402889, 36.00000165402889)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(68.00000354647636, 68.00000354647636, 68.00000354647636))
 }
-Converted["_UIGradient5"].Rotation = 68
-Converted["_UIGradient5"].Parent = Converted["_Menu"]
+Converted["_UIGradient6"].Rotation = 68
+Converted["_UIGradient6"].Parent = Converted["_Menu"]
 
 Converted["_CloseArea"].Text = ""
 Converted["_CloseArea"].AnchorPoint = Vector2.new(0.5, 0.5)
@@ -864,8 +898,8 @@ Converted["_Frame"].Position = UDim2.new(0.5, 0, 0.699999988, 0)
 Converted["_Frame"].Size = UDim2.new(0.699999988, 0, 0.100000001, 0)
 Converted["_Frame"].Parent = Converted["_CloseArea"]
 
-Converted["_UICorner15"].CornerRadius = UDim.new(0, 9999)
-Converted["_UICorner15"].Parent = Converted["_Frame"]
+Converted["_UICorner17"].CornerRadius = UDim.new(0, 9999)
+Converted["_UICorner17"].Parent = Converted["_Frame"]
 
 Converted["_TextLabel7"].Font = Enum.Font.Gotham
 Converted["_TextLabel7"].Text = "Tap here to minimize."
@@ -881,7 +915,7 @@ Converted["_TextLabel7"].Position = UDim2.new(0.5, 0, 0.680000007, 0)
 Converted["_TextLabel7"].Size = UDim2.new(1.39999998, 0, 0.740999997, 0)
 Converted["_TextLabel7"].Parent = Converted["_CloseArea"]
 
-Converted["_UICorner16"].Parent = Converted["_TextLabel7"]
+Converted["_UICorner18"].Parent = Converted["_TextLabel7"]
 
 Converted["_Toggle"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Toggle"].BackgroundTransparency = 1
@@ -927,8 +961,8 @@ Converted["_Frame2"].Position = UDim2.new(0.5, 0, 0.5, 0)
 Converted["_Frame2"].Size = UDim2.new(0, 89, 1, 0)
 Converted["_Frame2"].Parent = Converted["_Frame1"]
 
-Converted["_UICorner17"].CornerRadius = UDim.new(1, 0)
-Converted["_UICorner17"].Parent = Converted["_Frame2"]
+Converted["_UICorner19"].CornerRadius = UDim.new(1, 0)
+Converted["_UICorner19"].Parent = Converted["_Frame2"]
 
 Converted["_Toggler"].Font = Enum.Font.SourceSans
 Converted["_Toggler"].Text = ""
@@ -943,19 +977,19 @@ Converted["_Toggler"].Size = UDim2.new(0.449438214, 0, 0.800000012, 0)
 Converted["_Toggler"].Name = "Toggler"
 Converted["_Toggler"].Parent = Converted["_Frame2"]
 
-Converted["_UICorner18"].CornerRadius = UDim.new(1, 0)
-Converted["_UICorner18"].Parent = Converted["_Toggler"]
+Converted["_UICorner20"].CornerRadius = UDim.new(1, 0)
+Converted["_UICorner20"].Parent = Converted["_Toggler"]
 
-Converted["_ImageLabel1"].Image = "rbxassetid://10002373478"
-Converted["_ImageLabel1"].ImageColor3 = Color3.fromRGB(255, 0, 4.000000236555934)
-Converted["_ImageLabel1"].AnchorPoint = Vector2.new(0.5, 0.5)
-Converted["_ImageLabel1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_ImageLabel1"].BackgroundTransparency = 1
-Converted["_ImageLabel1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_ImageLabel1"].BorderSizePixel = 0
-Converted["_ImageLabel1"].Position = UDim2.new(0.5, 0, 0.5, 0)
-Converted["_ImageLabel1"].Size = UDim2.new(0, 20, 0, 20)
-Converted["_ImageLabel1"].Parent = Converted["_Toggler"]
+Converted["_ImageLabel2"].Image = "rbxassetid://10002373478"
+Converted["_ImageLabel2"].ImageColor3 = Color3.fromRGB(255, 0, 4.000000236555934)
+Converted["_ImageLabel2"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_ImageLabel2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_ImageLabel2"].BackgroundTransparency = 1
+Converted["_ImageLabel2"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageLabel2"].BorderSizePixel = 0
+Converted["_ImageLabel2"].Position = UDim2.new(0.5, 0, 0.5, 0)
+Converted["_ImageLabel2"].Size = UDim2.new(0, 20, 0, 20)
+Converted["_ImageLabel2"].Parent = Converted["_Toggler"]
 
 Converted["_UIPadding10"].PaddingRight = UDim.new(0.0700000003, 0)
 Converted["_UIPadding10"].Parent = Converted["_Toggle"]
@@ -971,26 +1005,26 @@ Converted["_DropdownFrameSample"].Visible = false
 Converted["_DropdownFrameSample"].Name = "DropdownFrameSample"
 Converted["_DropdownFrameSample"].Parent = Converted["_YARHM"]
 
-Converted["_UICorner19"].Parent = Converted["_DropdownFrameSample"]
+Converted["_UICorner21"].Parent = Converted["_DropdownFrameSample"]
 
-Converted["_UIGradient6"].Color = ColorSequence.new{
+Converted["_UIGradient7"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(36.00000165402889, 36.00000165402889, 36.00000165402889)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(68.00000354647636, 68.00000354647636, 68.00000354647636))
 }
-Converted["_UIGradient6"].Rotation = 68
-Converted["_UIGradient6"].Parent = Converted["_DropdownFrameSample"]
+Converted["_UIGradient7"].Rotation = 68
+Converted["_UIGradient7"].Parent = Converted["_DropdownFrameSample"]
 
-Converted["_UIStroke10"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke10"].Thickness = 2
-Converted["_UIStroke10"].Parent = Converted["_DropdownFrameSample"]
+Converted["_UIStroke11"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke11"].Thickness = 2
+Converted["_UIStroke11"].Parent = Converted["_DropdownFrameSample"]
 
-Converted["_UIGradient7"].Color = ColorSequence.new{
+Converted["_UIGradient8"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(111.00000098347664, 111.00000098347664, 111.00000098347664)),
 	ColorSequenceKeypoint.new(0.6401384472846985, Color3.fromRGB(114.23875719308853, 114.23875719308853, 114.23875719308853)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 }
-Converted["_UIGradient7"].Rotation = -107
-Converted["_UIGradient7"].Parent = Converted["_UIStroke10"]
+Converted["_UIGradient8"].Rotation = -107
+Converted["_UIGradient8"].Parent = Converted["_UIStroke11"]
 
 Converted["_ScrollingFrame1"].AutomaticCanvasSize = Enum.AutomaticSize.XY
 Converted["_ScrollingFrame1"].CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -1028,7 +1062,7 @@ Converted["_UIPadding11"].PaddingRight = UDim.new(0, 7)
 Converted["_UIPadding11"].PaddingTop = UDim.new(0, 7)
 Converted["_UIPadding11"].Parent = Converted["_Sample"]
 
-Converted["_UICorner20"].Parent = Converted["_Sample"]
+Converted["_UICorner22"].Parent = Converted["_Sample"]
 
 Converted["_UIPadding12"].PaddingBottom = UDim.new(0, 7)
 Converted["_UIPadding12"].PaddingLeft = UDim.new(0, 7)
@@ -1036,17 +1070,17 @@ Converted["_UIPadding12"].PaddingRight = UDim.new(0, 7)
 Converted["_UIPadding12"].PaddingTop = UDim.new(0, 7)
 Converted["_UIPadding12"].Parent = Converted["_DropdownFrameSample"]
 
-Converted["_Range"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_Range"].BackgroundTransparency = 1
-Converted["_Range"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_Range"].BorderSizePixel = 0
-Converted["_Range"].Size = UDim2.new(1, 0, 0, 35)
-Converted["_Range"].Visible = false
-Converted["_Range"].Name = "Range"
-Converted["_Range"].Parent = Converted["_YARHM"]
+Converted["_Dropdown"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Dropdown"].BackgroundTransparency = 1
+Converted["_Dropdown"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Dropdown"].BorderSizePixel = 0
+Converted["_Dropdown"].Size = UDim2.new(1, 0, 0, 35)
+Converted["_Dropdown"].Visible = false
+Converted["_Dropdown"].Name = "Dropdown"
+Converted["_Dropdown"].Parent = Converted["_YARHM"]
 
 Converted["_TextLabel9"].Font = Enum.Font.Unknown
-Converted["_TextLabel9"].Text = "How many #### I give"
+Converted["_TextLabel9"].Text = "Loop walkspeed and FOV"
 Converted["_TextLabel9"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextLabel9"].TextScaled = true
 Converted["_TextLabel9"].TextSize = 14
@@ -1057,24 +1091,32 @@ Converted["_TextLabel9"].BackgroundTransparency = 1
 Converted["_TextLabel9"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_TextLabel9"].BorderSizePixel = 0
 Converted["_TextLabel9"].Size = UDim2.new(0.699999988, 0, 1, 0)
-Converted["_TextLabel9"].Parent = Converted["_Range"]
+Converted["_TextLabel9"].Parent = Converted["_Dropdown"]
 
 Converted["_UIListLayout5"].Padding = UDim.new(0, 15)
 Converted["_UIListLayout5"].FillDirection = Enum.FillDirection.Horizontal
 Converted["_UIListLayout5"].HorizontalAlignment = Enum.HorizontalAlignment.Center
 Converted["_UIListLayout5"].SortOrder = Enum.SortOrder.LayoutOrder
-Converted["_UIListLayout5"].Parent = Converted["_Range"]
+Converted["_UIListLayout5"].Parent = Converted["_Dropdown"]
 
 Converted["_UIPadding13"].PaddingLeft = UDim.new(0.0700000003, 0)
 Converted["_UIPadding13"].PaddingRight = UDim.new(0.0700000003, 0)
-Converted["_UIPadding13"].Parent = Converted["_Range"]
+Converted["_UIPadding13"].Parent = Converted["_Dropdown"]
 
+Converted["_Frame3"].Font = Enum.Font.Gotham
+Converted["_Frame3"].Text = "Select..."
+Converted["_Frame3"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Frame3"].TextScaled = true
+Converted["_Frame3"].TextWrapped = true
+Converted["_Frame3"].Active = false
 Converted["_Frame3"].BackgroundColor3 = Color3.fromRGB(31.000001952052116, 31.000001952052116, 31.000001952052116)
-Converted["_Frame3"].BackgroundTransparency = 1
+Converted["_Frame3"].BackgroundTransparency = -0.03999999910593033
 Converted["_Frame3"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Frame3"].BorderSizePixel = 0
+Converted["_Frame3"].Selectable = false
 Converted["_Frame3"].Size = UDim2.new(0.400000006, 0, 1, 0)
-Converted["_Frame3"].Parent = Converted["_Range"]
+Converted["_Frame3"].Name = "Frame"
+Converted["_Frame3"].Parent = Converted["_Dropdown"]
 
 Converted["_UIPadding14"].PaddingBottom = UDim.new(0, 7)
 Converted["_UIPadding14"].PaddingLeft = UDim.new(0, 7)
@@ -1082,31 +1124,7 @@ Converted["_UIPadding14"].PaddingRight = UDim.new(0, 7)
 Converted["_UIPadding14"].PaddingTop = UDim.new(0, 7)
 Converted["_UIPadding14"].Parent = Converted["_Frame3"]
 
-Converted["_UICorner21"].Parent = Converted["_Frame3"]
-
-Converted["_Frame4"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_Frame4"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_Frame4"].BorderSizePixel = 0
-Converted["_Frame4"].Size = UDim2.new(1, 0, 0.200000003, 0)
-Converted["_Frame4"].Parent = Converted["_Frame3"]
-
-Converted["_UICorner22"].CornerRadius = UDim.new(1, 0)
-Converted["_UICorner22"].Parent = Converted["_Frame4"]
-
-Converted["_TextButton1"].Font = Enum.Font.SourceSans
-Converted["_TextButton1"].Text = ""
-Converted["_TextButton1"].TextColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_TextButton1"].TextSize = 14
-Converted["_TextButton1"].AnchorPoint = Vector2.new(0.5, 0.5)
-Converted["_TextButton1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_TextButton1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_TextButton1"].BorderSizePixel = 0
-Converted["_TextButton1"].Position = UDim2.new(0, 0, 0.5, 0)
-Converted["_TextButton1"].Size = UDim2.new(0, 20, 0, 20)
-Converted["_TextButton1"].Parent = Converted["_Frame4"]
-
-Converted["_UICorner23"].CornerRadius = UDim.new(1, 0)
-Converted["_UICorner23"].Parent = Converted["_TextButton1"]
+Converted["_UICorner23"].Parent = Converted["_Frame3"]
 
 Converted["_Dialog"].AnchorPoint = Vector2.new(0.5, 1)
 Converted["_Dialog"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1120,12 +1138,12 @@ Converted["_Dialog"].Parent = Converted["_YARHM"]
 
 Converted["_UICorner24"].Parent = Converted["_Dialog"]
 
-Converted["_UIGradient8"].Color = ColorSequence.new{
+Converted["_UIGradient9"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(36.00000165402889, 36.00000165402889, 36.00000165402889)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(68.00000354647636, 68.00000354647636, 68.00000354647636))
 }
-Converted["_UIGradient8"].Rotation = -133
-Converted["_UIGradient8"].Parent = Converted["_Dialog"]
+Converted["_UIGradient9"].Rotation = -133
+Converted["_UIGradient9"].Parent = Converted["_Dialog"]
 
 Converted["_UIPadding15"].PaddingBottom = UDim.new(0, 15)
 Converted["_UIPadding15"].PaddingLeft = UDim.new(0, 15)
@@ -1133,17 +1151,17 @@ Converted["_UIPadding15"].PaddingRight = UDim.new(0, 15)
 Converted["_UIPadding15"].PaddingTop = UDim.new(0, 15)
 Converted["_UIPadding15"].Parent = Converted["_Dialog"]
 
-Converted["_UIStroke11"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke11"].Thickness = 2
-Converted["_UIStroke11"].Parent = Converted["_Dialog"]
+Converted["_UIStroke12"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke12"].Thickness = 2
+Converted["_UIStroke12"].Parent = Converted["_Dialog"]
 
-Converted["_UIGradient9"].Color = ColorSequence.new{
+Converted["_UIGradient10"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(111.00000098347664, 111.00000098347664, 111.00000098347664)),
 	ColorSequenceKeypoint.new(0.6401384472846985, Color3.fromRGB(114.23875719308853, 114.23875719308853, 114.23875719308853)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 }
-Converted["_UIGradient9"].Rotation = -107
-Converted["_UIGradient9"].Parent = Converted["_UIStroke11"]
+Converted["_UIGradient10"].Rotation = -107
+Converted["_UIGradient10"].Parent = Converted["_UIStroke12"]
 
 Converted["_DialogTitle"].Font = Enum.Font.Unknown
 Converted["_DialogTitle"].TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1179,9 +1197,9 @@ Converted["_DialogDesc"].Size = UDim2.new(0.997416437, 0, 0.604575336, 0)
 Converted["_DialogDesc"].Name = "DialogDesc"
 Converted["_DialogDesc"].Parent = Converted["_Dialog"]
 
-Converted["_UITextSizeConstraint"].MaxTextSize = 20
-Converted["_UITextSizeConstraint"].MinTextSize = 5
-Converted["_UITextSizeConstraint"].Parent = Converted["_DialogDesc"]
+Converted["_UITextSizeConstraint1"].MaxTextSize = 20
+Converted["_UITextSizeConstraint1"].MinTextSize = 5
+Converted["_UITextSizeConstraint1"].Parent = Converted["_DialogDesc"]
 
 Converted["_Options"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Options"].BackgroundTransparency = 1
@@ -1221,97 +1239,50 @@ Converted["_UIPadding16"].Parent = Converted["_OptionPlaceholder"]
 
 Converted["_UICorner25"].Parent = Converted["_OptionPlaceholder"]
 
-Converted["_UIStroke12"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-Converted["_UIStroke12"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke12"].Thickness = 2
-Converted["_UIStroke12"].Parent = Converted["_OptionPlaceholder"]
+Converted["_UIStroke13"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_UIStroke13"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke13"].Thickness = 2
+Converted["_UIStroke13"].Parent = Converted["_OptionPlaceholder"]
 
-Converted["_UIGradient10"].Color = ColorSequence.new{
+Converted["_UIGradient11"].Color = ColorSequence.new{
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(111.00000098347664, 111.00000098347664, 111.00000098347664)),
 	ColorSequenceKeypoint.new(0.6401384472846985, Color3.fromRGB(114.23875719308853, 114.23875719308853, 114.23875719308853)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 }
-Converted["_UIGradient10"].Rotation = -107
-Converted["_UIGradient10"].Parent = Converted["_UIStroke12"]
+Converted["_UIGradient11"].Rotation = -107
+Converted["_UIGradient11"].Parent = Converted["_UIStroke13"]
 
 Converted["_OnSelect"].Name = "OnSelect"
 Converted["_OnSelect"].Parent = Converted["_Dialog"]
 
 Converted["_UIScale2"].Parent = Converted["_Dialog"]
 
-Converted["_NotificationSample"].AnchorPoint = Vector2.new(0.5, 0.5)
-Converted["_NotificationSample"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_NotificationSample"].BackgroundTransparency = 0.4000000059604645
-Converted["_NotificationSample"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_NotificationSample"].BorderSizePixel = 0
-Converted["_NotificationSample"].ClipsDescendants = true
-Converted["_NotificationSample"].Position = UDim2.new(0.699999988, 0, 0.899999976, 0)
-Converted["_NotificationSample"].Size = UDim2.new(0, 400, 0, 50)
-Converted["_NotificationSample"].Visible = false
-Converted["_NotificationSample"].ZIndex = 5
-Converted["_NotificationSample"].Name = "NotificationSample"
-Converted["_NotificationSample"].Parent = Converted["_YARHM"]
+Converted["_MurdererBGUI"].Active = true
+Converted["_MurdererBGUI"].AlwaysOnTop = true
+Converted["_MurdererBGUI"].ClipsDescendants = true
+Converted["_MurdererBGUI"].Size = UDim2.new(0, 70, 0, 70)
+Converted["_MurdererBGUI"].StudsOffset = Vector3.new(0, 2, 2)
+Converted["_MurdererBGUI"].Enabled = false
+Converted["_MurdererBGUI"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Converted["_MurdererBGUI"].Name = "MurdererBGUI"
+Converted["_MurdererBGUI"].Parent = Converted["_YARHM"]
 
-Converted["_UICorner26"].CornerRadius = UDim.new(0, 10)
-Converted["_UICorner26"].Parent = Converted["_NotificationSample"]
-
-Converted["_UIStroke13"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke13"].Thickness = 1.600000023841858
-Converted["_UIStroke13"].Parent = Converted["_NotificationSample"]
-
-Converted["_UIGradient11"].Color = ColorSequence.new{
-	ColorSequenceKeypoint.new(0, Color3.fromRGB(46.000001057982445, 46.000001057982445, 46.000001057982445)),
-	ColorSequenceKeypoint.new(1, Color3.fromRGB(12.000000234693289, 12.000000234693289, 12.000000234693289))
-}
-Converted["_UIGradient11"].Parent = Converted["_NotificationSample"]
-
-Converted["_ImageLabel2"].Image = "rbxassetid://11780939099"
-Converted["_ImageLabel2"].ScaleType = Enum.ScaleType.Fit
-Converted["_ImageLabel2"].AnchorPoint = Vector2.new(0.5, 0.5)
-Converted["_ImageLabel2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_ImageLabel2"].BackgroundTransparency = 1
-Converted["_ImageLabel2"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_ImageLabel2"].BorderSizePixel = 0
-Converted["_ImageLabel2"].Position = UDim2.new(0.100000001, 0, 0.5, 0)
-Converted["_ImageLabel2"].Size = UDim2.new(0.0799999982, 0, 0.639999986, 0)
-Converted["_ImageLabel2"].Parent = Converted["_NotificationSample"]
-
-Converted["_TextLabel10"].Font = Enum.Font.Gotham
-Converted["_TextLabel10"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_TextLabel10"].Font = Enum.Font.SourceSansBold
+Converted["_TextLabel10"].Text = "Murderer"
+Converted["_TextLabel10"].TextColor3 = Color3.fromRGB(255, 0, 4.000000236555934)
 Converted["_TextLabel10"].TextScaled = true
 Converted["_TextLabel10"].TextSize = 14
 Converted["_TextLabel10"].TextWrapped = true
-Converted["_TextLabel10"].TextXAlignment = Enum.TextXAlignment.Left
 Converted["_TextLabel10"].AnchorPoint = Vector2.new(0.5, 0.5)
 Converted["_TextLabel10"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextLabel10"].BackgroundTransparency = 1
 Converted["_TextLabel10"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_TextLabel10"].BorderSizePixel = 0
 Converted["_TextLabel10"].Position = UDim2.new(0.5, 0, 0.5, 0)
-Converted["_TextLabel10"].Size = UDim2.new(0.600000024, 0, 0.600000024, 0)
-Converted["_TextLabel10"].Parent = Converted["_NotificationSample"]
+Converted["_TextLabel10"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_TextLabel10"].Parent = Converted["_MurdererBGUI"]
 
-Converted["_UITextSizeConstraint1"].MaxTextSize = 30
-Converted["_UITextSizeConstraint1"].Parent = Converted["_TextLabel10"]
-
-Converted["_Close1"].Image = "rbxassetid://10002373478"
-Converted["_Close1"].ScaleType = Enum.ScaleType.Fit
-Converted["_Close1"].Active = false
-Converted["_Close1"].AnchorPoint = Vector2.new(0.5, 0.5)
-Converted["_Close1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_Close1"].BackgroundTransparency = 1
-Converted["_Close1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_Close1"].BorderSizePixel = 0
-Converted["_Close1"].Position = UDim2.new(0.899999976, 0, 0.5, 0)
-Converted["_Close1"].Selectable = false
-Converted["_Close1"].Size = UDim2.new(0.0799999982, 0, 0.639999986, 0)
-Converted["_Close1"].Name = "Close"
-Converted["_Close1"].Parent = Converted["_NotificationSample"]
-
-Converted["_UICorner27"].Parent = Converted["_Close1"]
-
-Converted["_UIStroke14"].Color = Color3.fromRGB(255, 255, 255)
-Converted["_UIStroke14"].Parent = Converted["_Close1"]
+Converted["_UIStroke14"].Parent = Converted["_TextLabel10"]
 
 -- Fake Module Scripts:
 
@@ -1377,7 +1348,7 @@ do -- Fake Module: StarterGui.YARHM.FUNCTIONS
 			task.spawn(function()
 				local notif = script.Parent.NotificationSample:Clone()
 				notif.Parent = script.Parent
-				notif.Position = UDim2.fromScale(0.7, 1.2)
+				notif.Position = UDim2.fromScale(0.5, 1.2)
 				notif.Size = UDim2.fromOffset(100, 50)
 				notif.Visible = true
 				notif.Name = s
@@ -1401,7 +1372,7 @@ do -- Fake Module: StarterGui.YARHM.FUNCTIONS
 				notif.TextLabel.Text = s
 				notif:SetAttribute("close", false)
 				ts:Create(notif, TweenInfo.new(0.7, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
-					Position = UDim2.fromScale(0.7, 0.9)
+					Position = UDim2.fromScale(0.5, 0.8)
 				}):Play()
 				
 				ts:Create(notif, TweenInfo.new(0.7, Enum.EasingStyle.Cubic, Enum.EasingDirection.InOut), {
@@ -1422,7 +1393,7 @@ do -- Fake Module: StarterGui.YARHM.FUNCTIONS
 				repeat task.wait() until os.clock()-lastclock > 5 or incomingNotif or notif:GetAttribute("close")
 				
 				local finish = ts:Create(notif, TweenInfo.new(0.3, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
-					Position = UDim2.fromScale(0.7, 1.2)
+					Position = UDim2.fromScale(0.5, 1.2)
 				})
 				finish:Play()
 				finish.Completed:Connect(function()
@@ -2064,7 +2035,7 @@ end
 
 -- Fake Local Scripts:
 
-local function KTTVWM_fake_script() -- Fake Script: StarterGui.YARHM.Open.InitOpen
+local function ZWCF_fake_script() -- Fake Script: StarterGui.YARHM.Open.InitOpen
     local script = Instance.new("LocalScript")
     script.Name = "InitOpen"
     script.Parent = Converted["_Open"]
@@ -2100,7 +2071,7 @@ local function KTTVWM_fake_script() -- Fake Script: StarterGui.YARHM.Open.InitOp
 	--	Transparency = 1
 	--}):Play()
 end
-local function HGIKDMY_fake_script() -- Fake Script: StarterGui.YARHM.Open.OnClick
+local function UTIUQKK_fake_script() -- Fake Script: StarterGui.YARHM.Open.OnClick
     local script = Instance.new("LocalScript")
     script.Name = "OnClick"
     script.Parent = Converted["_Open"]
@@ -2145,7 +2116,7 @@ local function HGIKDMY_fake_script() -- Fake Script: StarterGui.YARHM.Open.OnCli
 	end)
 	
 end
-local function DUEUMZX_fake_script() -- Fake Script: StarterGui.YARHM.Open.Resizer
+local function HXHLNJN_fake_script() -- Fake Script: StarterGui.YARHM.Open.Resizer
     local script = Instance.new("LocalScript")
     script.Name = "Resizer"
     script.Parent = Converted["_Open"]
@@ -2231,7 +2202,7 @@ local function DUEUMZX_fake_script() -- Fake Script: StarterGui.YARHM.Open.Resiz
 	userInputService.InputChanged:Connect(onInputChanged)
 	
 end
-local function AMQPR_fake_script() -- Fake Script: StarterGui.YARHM.Init
+local function AIRLFH_fake_script() -- Fake Script: StarterGui.YARHM.Init
     local script = Instance.new("LocalScript")
     script.Name = "Init"
     script.Parent = Converted["_YARHM"]
@@ -2300,7 +2271,7 @@ local function AMQPR_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	_G.Modules = {}
 	
 	--require(script.Parent.FUNCTIONS).notification("Thanks for using YARHM! To use this hub, triple-click/tap the top region of your screen.")
-	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Test v1.17!")
+	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM v1.16!")
 	
 	
 	--local menudrag = require(script.Parent.DraggableObject).new(script.Parent.Menu)
@@ -2330,7 +2301,7 @@ local function AMQPR_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	
 	--require(script.Parent.DraggableObject).new(script.Parent.Menu.CanvasGroup.Opener, script.Parent.Menu):Enable()
 end
-local function HRFWPR_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Keybinding
+local function MRAKSH_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Keybinding
     local script = Instance.new("LocalScript")
     script.Name = "Keybinding"
     script.Parent = Converted["_FloatingButton"]
@@ -2345,7 +2316,7 @@ local function HRFWPR_fake_script() -- Fake Script: StarterGui.YARHM.FloatingBut
 
 	
 end
-local function XYLPJ_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Invisible
+local function GDWFV_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Invisible
     local script = Instance.new("LocalScript")
     script.Name = "Invisible"
     script.Parent = Converted["_FloatingButton"]
@@ -2395,7 +2366,7 @@ local function XYLPJ_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButt
 	--	holding = false
 	--end)
 end
-local function RKUBI_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Add.LocalScript
+local function OGQXOD_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Add.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Add"]
@@ -2432,11 +2403,11 @@ local function RKUBI_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomMod
 			require(script.Parent.Parent.Parent.FUNCTIONS).notification("New module added: " .. newmodule["Name"])
 			require(script.Parent.Parent.Parent.FUNCTIONS).refreshlist()
 		else
-			require(script.Parent.Parent.Parent.FUNCTIONS).notification("Module failed to load...")
+			require(script.Parent.Parent.Parent.FUNCTIONS).notification("Module failed to load after 5 seconds.")
 		end
 	end)
 end
-local function WKWV_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Cancel.LocalScript
+local function BBFWH_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Cancel.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Cancel"]
@@ -2460,10 +2431,10 @@ local function WKWV_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModu
 		}):Play()
 	end)
 end
-local function FQLSPV_fake_script() -- Fake Script: StarterGui.YARHM.Menu.UIStroke.UIGradient.Animator
+local function DJQVE_fake_script() -- Fake Script: StarterGui.YARHM.Menu.UIStroke.UIGradient.Animator
     local script = Instance.new("LocalScript")
     script.Name = "Animator"
-    script.Parent = Converted["_UIGradient2"]
+    script.Parent = Converted["_UIGradient3"]
     local req = require
     local require = function(obj)
         local fake = fake_module_scripts[obj]
@@ -2481,7 +2452,7 @@ local function FQLSPV_fake_script() -- Fake Script: StarterGui.YARHM.Menu.UIStro
 			Rotation = -180
 		}):Play()
 end
-local function HTKP_fake_script() -- Fake Script: StarterGui.YARHM.Menu.List.AutoSetup
+local function CFCNALN_fake_script() -- Fake Script: StarterGui.YARHM.Menu.List.AutoSetup
     local script = Instance.new("LocalScript")
     script.Name = "AutoSetup"
     script.Parent = Converted["_List"]
@@ -2535,7 +2506,7 @@ local function HTKP_fake_script() -- Fake Script: StarterGui.YARHM.Menu.List.Aut
 		end
 	end)
 end
-local function IMQBK_fake_script() -- Fake Script: StarterGui.YARHM.Menu.AddCustomModule.LocalScript
+local function QDXYNFK_fake_script() -- Fake Script: StarterGui.YARHM.Menu.AddCustomModule.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_AddCustomModule1"]
@@ -2559,10 +2530,10 @@ local function IMQBK_fake_script() -- Fake Script: StarterGui.YARHM.Menu.AddCust
 		}):Play()
 	end)
 end
-local function GDUS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close.LocalScript
+local function OUEFX_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
-    script.Parent = Converted["_Close"]
+    script.Parent = Converted["_Close1"]
     local req = require
     local require = function(obj)
         local fake = fake_module_scripts[obj]
@@ -2585,7 +2556,7 @@ local function GDUS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close.Lo
 		}):Play()
 	end)
 end
-local function HHZGQ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseArea.CloseOpen
+local function NDQEZ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseArea.CloseOpen
     local script = Instance.new("LocalScript")
     script.Name = "CloseOpen"
     script.Parent = Converted["_CloseArea"]
@@ -2653,10 +2624,8 @@ local function HHZGQ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseAr
 	
 	local OpenerMenuDrag = DraggableObject.new(script.Parent.Parent.CanvasGroup.Opener, menu, false, true)
 	OpenerMenuDrag:Enable()
-	local OpenerDraggable = true
 	
 	textHidden = false
-	
 	
 	-- Dragging behavior
 	MenuDrag.Dragged = function(pos)
@@ -2672,10 +2641,8 @@ local function HHZGQ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseAr
 	end
 	
 	OpenerMenuDrag.Dragged = function(pos)
-		if OpenerDraggable then
-			closedLastPos = pos
-			setSpringPosGoal(pos)
-		end
+		closedLastPos = pos
+		setSpringPosGoal(pos)
 	end
 	
 	script.Parent.MouseButton1Click:Connect(function()
@@ -2694,7 +2661,6 @@ local function HHZGQ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseAr
 		setSpringSizeGoal(UDim2.fromOffset(60, 60))
 		--script.Parent.ZIndex = script.Parent.ZIndex - 2
 		menu.CanvasGroup.Visible = true
-		OpenerDraggable = true
 		TweenService:Create(menu.CanvasGroup, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
 			GroupTransparency = 0
 		}):Play()
@@ -2728,7 +2694,6 @@ local function HHZGQ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseAr
 	
 		setSpringPosGoal(lastPos)
 		setSpringSizeGoal(UDim2.fromOffset(441, 268))
-		OpenerDraggable = false
 		--script.Parent.ZIndex = script.Parent.ZIndex + 2
 		local closing = TweenService:Create(menu.CanvasGroup, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
 			GroupTransparency = 1
@@ -2742,9 +2707,9 @@ local function HHZGQ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseAr
 	task.wait(1)
 	springing = true
 end
-local function RCQS_fake_script() -- Fake Script: StarterGui.YARHM.Flee the Facility
+local function QDCZI_fake_script() -- Fake Script: StarterGui.YARHM.New
     local script = Instance.new("LocalScript")
-    script.Name = "Flee the Facility"
+    script.Name = "New"
     script.Parent = Converted["_YARHM"]
     local req = require
     local require = function(obj)
@@ -2756,303 +2721,109 @@ local function RCQS_fake_script() -- Fake Script: StarterGui.YARHM.Flee the Faci
     end
 
 	local module = {}
-	module["gameId"] = 893973440 -- Restrict module to a certain game ID only. 0 allows all games.
-	if (module["gameId"] ~= game.GameId) and module["gameId"] ~= 0 then
-		script.Enabled = false
-	end
+	module["gameId"] = 0 -- Restrict module to a certain game ID only. 0 allows all games
+	module["Name"] = "KickSpecificScriptUsers"
 	
-	module["Name"] = "Flee the Facility"
+	local fu = require(_G.YARHM.FUNCTIONS) -- Assuming this is a utility for notifications and other functions
 	
-	local ts = game:GetService("TweenService")
+	-- Table to store the original transparency of parts
+	local originalTransparencies = {}
 	
-	local FUNCTIONS = require(script.Parent.FUNCTIONS)
-	
-	
-	module.players = false
-	module.pcs = false
-	module.pods = false
-	module.exits = false
-	
-	module.antipcerror = false
-	module.flashlight = false
-	
-	local esps = {}
-	
-	local function getBeast()
-		local listplayers = game.Players:GetChildren()
-		for _, player in ipairs(listplayers) do
-			local character = player.Character
-			if character ~= nil and character:FindFirstChild("BeastPowers") then
-				return player
+	-- Function to enable X-ray vision
+	local function enableXray()
+		for _, part in pairs(workspace:GetDescendants()) do
+			if part:IsA("BasePart") and not part:IsA("Terrain") and part.Transparency == 0 then
+				originalTransparencies[part] = part.Transparency
+				part.LocalTransparencyModifier = 0.5 -- Adjust transparency to simulate X-ray
 			end
 		end
 	end
 	
-	local function reloadESP()
-	
-	
-		for _, i in ipairs(workspace:GetChildren()) do
-			if i.Name == "PlayerHighlight" and not module.players then
-				i:Destroy()
-			end
-	
-			if i.Name == "PCHighlight" and not module.pcs then
-				i:Destroy()
-			end
-	
-			if i.Name == "PodsHighlight" and not module.pods then
-				i:Destroy()
-			end
-	
-			if i.Name == "ExitsHighlight" and not module.exits then
-				i:Destroy()
+	-- Function to disable X-ray vision
+	local function disableXray()
+		for part, transparency in pairs(originalTransparencies) do
+			if part:IsA("BasePart") and not part:IsA("Terrain") then
+				part.LocalTransparencyModifier = transparency -- Reset transparency to original value
 			end
 		end
-	
-		if module.players then
-	
-	
-	
-			local listplayers = game.Players:GetChildren()
-			for _, player in ipairs(listplayers) do
-				if player ~= game.Players.LocalPlayer and player.Character ~= nil then
-					local character = player.Character
-					if not character:FindFirstChild("PlayerHighlight") then
-						local a = Instance.new("Highlight", workspace)
-						esps["PlayerHighlight"] = a
-						a.Name = "PlayerHighlight"
-						a.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-						a.Adornee = character
-						task.spawn(function()
-							repeat
-								task.wait(0.1)
-								if player == getBeast() then
-									a.FillColor = Color3.fromRGB(255,0,0)
-								else
-									a.FillColor = Color3.fromRGB(0,255,0)
-								end
-							until character == nil or a == nil
-						end)
-					end
-				end
-			end
-	
-	
-		end
-	
-		if module.pcs then
-	
-	
-	
-	
-			for _, obj in ipairs(game.Workspace:GetDescendants()) do
-				if obj.Name == "ComputerTable" and not obj:FindFirstChild("PCHighlight") then
-					local hili = Instance.new("Highlight", workspace)
-					esps["PCHighlight"] = hili
-					hili.Name = "PCHighlight"
-					hili.OutlineTransparency = 1
-					hili.Adornee = obj
-					hili.FillColor = obj:FindFirstChild("Screen").Color
-				end
-			end
-	
-	
-		end
-	
-		if module.pods then
-	
-	
-	
-			for _, obj in ipairs(game.Workspace:GetDescendants()) do
-				if obj.Name == "FreezePod" then
-					local hili = Instance.new("Highlight", workspace)
-					esps["PodsHighlight"] = hili
-					hili.Name = "PodsHighlight"
-					hili.OutlineTransparency = 1
-					hili.Adornee = obj
-					hili.FillColor = Color3.fromRGB(0, 200, 255)
-				end
-			end
-	
-		end
-	
-	
-		if module.exits then
-	
-	
-	
-			for _, obj in ipairs(game.Workspace:GetDescendants()) do
-				if obj.Name == "ExitDoor" and not obj:FindFirstChild("ExitsHighlight") then
-					local hili = Instance.new("Highlight", workspace)
-					esps["ExitsHighlight"] = hili
-					hili.Name = "ExitsHighlight"
-					hili.OutlineTransparency = 1
-					hili.Adornee = obj
-					hili.FillColor = Color3.fromRGB(255,255,0)
-				end
-			end
-	
-		end
+		originalTransparencies = {} -- Clear the table
 	end
 	
-	
-	
-	
-	module[1] = {
-		Type = "Text",
-		Args = {"ESPs"}
-	}
-	
-	module[2] = {
-		Type = "ButtonGrid",
-		Toggleable = true, -- Recolors buttons for you onclick, you still need to save the state yourself
-		Args = {3, { -- 3 is the number of columns
-			Players = function(Self)
-	
-				if module.players then
-					module.players = false
-					reloadESP()
-				else
-					module.players = true
-					reloadESP()
-				end
-	
-	
-			end,
-			PCs = function(Self)
-	
-				if module.pcs then
-					module.pcs = false
-					reloadESP()
-				else
-					module.pcs = true
-					reloadESP()
-				end
-	
-			end,
-			Pods = function(Self)
-	
-				if module.pods then
-					module.pods = false
-					reloadESP()
-				else
-					module.pods = true
-					reloadESP()
-				end
-				
-	
-			end,
-			Exits = function(Self)
-	
-				if module.exits then
-					module.exits = false
-					reloadESP()
-				else
-					module.exits = true
-					reloadESP()
-				end
-	
-			end,
-		}
-		} 
-	}
-	module[3] = { -- spacing, button grid doesnt correctly height itself for some reason
-		Type = "Text",
-		Args = {""}
-	}
-	
-	module[4] = {
-		Type = "Text",
-		Args = {"Tools"}
-	}
-	
-	
-	local root = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-	
-	light = Instance.new("PointLight", root)
-	light.Brightness = 0
-	light.Range = 9999999999
-	
-	local wslock = false
-	local ws = 18
-	
-	local antifail = false
-	
-	
-	task.spawn(function() 
-		if game:GetService("RunService"):IsStudio() then return end -- :)
-		
-		local OldNameCall = nil
-	
-		OldNameCall = hookmetamethod(game, "__namecall", function(Self, ...)
-			local Args = {...}
-			local NamecallMethod = getnamecallmethod()
-	
-			if NamecallMethod == "FireServer" and Args[1] == "SetPlayerMinigameResult" and antifail then
-				print("Minigame result - Intercepting result to true")
-				Args[2] = true
+	-- Create the toggle for X-ray vision
+	table.insert(module, {
+		Type = "Toggle",
+		Args = {"Enable X-ray Vision", function(Self, state)
+			xrayEnabled = state
+			if state then
+				enableXray()
+				fu.notification("X-ray vision enabled.")
+			else
+				disableXray()
+				fu.notification("X-ray vision disabled.")
 			end
+		end}
+	})
 	
-			return OldNameCall(Self, unpack(Args))
-		end)
-	
-	end)
-	
-	
-	module[5] = {
-		Type = "ButtonGrid",
-		Toggleable = true,
-		Args = {3, {
-			Anti_PC_Error = function()
-				if antifail then antifail = false else antifail = true end
-			end,
-			Flashlight = function()
-				if light.Brightness == 0 then
-					light.Brightness = 2.5
-				else
-					light.Brightness = 0
-				end
-			end,
-		}}
-	}
-	
-	task.spawn(function()
-		while task.wait(0.1) do
-			if wslock then
-				root.Parent:WaitForChild("Humanoid").WalkSpeed = ws
-			end
-		end
-	end)
-	
-	module[6] = {
+	table.insert(module, {
 		Type = "Input",
-		Args = {"Input a walkspeed", "Set & Lock", function(Self, text)
-			if not tonumber(text) then
-				FUNCTIONS.notification("Input isn't a valid number.")
+		Args = {"Player Target As Murderer", "Kill", function(Self, targetName)
+			-- Check if the local player is the murderer
+			if findMurderer() ~= localplayer then
+				fu.notification("You're not the murderer.")
 				return
 			end
-			
-			ws = tonumber(text)
-			wslock = true
+	
+			-- Check if the local player has a knife
+			if not localplayer.Character:FindFirstChild("Knife") then
+				if localplayer.Backpack:FindFirstChild("Knife") then
+					localplayer.Character:FindFirstChild("Humanoid"):EquipTool(localplayer.Backpack:FindFirstChild("Knife"))
+				else
+					fu.notification("You don't have the knife..?")
+					return
+				end
+			end
+	
+			-- Find the target player by name
+			local targetPlayer = nil
+			for _, player in ipairs(game.Players:GetPlayers()) do
+				if player.Name == targetName then
+					targetPlayer = player
+					break
+				end
+			end
+	
+			-- Check if the target player is found and has a valid character
+			if not targetPlayer or not targetPlayer.Character then
+				fu.notification("Target player not found or invalid.")
+				return
+			end
+	
+			local targetHRP = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+			if not targetHRP then
+				fu.notification("Target player's pivot not found.")
+				return
+			end
+	
+			-- Anchor and reposition the target player
+			targetHRP.Anchored = true
+			targetHRP.CFrame = localplayer.Character:FindFirstChild("HumanoidRootPart").CFrame + localplayer.Character:FindFirstChild("HumanoidRootPart").CFrame.LookVector * 1
+	
+			-- Execute the kill action
+			local args = {
+				[1] = "Slash"
+			}
+			localplayer.Character.Knife.Stab:FireServer(unpack(args))
+	
+			-- Notification for successful kill action
+			fu.notification("Player " .. targetName .. " has been killed.")
 		end,}
-	}
+	})
 	
-	module[7] = {
-		Type = "Button",
-		Args = {"Unlock all", function()
-			wslock = false
-		end,}
-	}	
-	
-	module[8] = {
-		Type = "Text",
-		Args = {"Locking means your speed will stay the same no matter what. This means you will not be slow when crawling or jumping as beast."}
-	}
-	
-	
+	-- Assign module to the global Modules table
+	_G.Modules = _G.Modules or {}
 	_G.Modules[2] = module
 end
-local function PDYWCPD_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mystery 2
+local function MTYY_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mystery 2
     local script = Instance.new("LocalScript")
     script.Name = "Murder Mystery 2"
     script.Parent = Converted["_YARHM"]
@@ -3610,102 +3381,102 @@ local function PDYWCPD_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mys
 	
 	
 	table.insert(module, {
-	Type = "Button",
-	Args = {"Fake Death [✓]", function(Self)
-		local character = localplayer.Character
-		if not character then
-			fu.notification("Character not found.")
-			return
-		end
-		
-		local humanoid = character:FindFirstChildOfClass("Humanoid")
-		if not humanoid then
-			fu.notification("Humanoid not found.")
-			return
-		end
-		
-		-- Make the character sit
-		humanoid.Sit = true
-
-		-- Adjust the position and orientation of body parts for the desired pose
-		local rootPart = character:FindFirstChild("HumanoidRootPart")
-		local torso = character:FindFirstChild("Torso") or character:FindFirstChild("UpperTorso")
-		local rightLeg = character:FindFirstChild("Right Leg") or character:FindFirstChild("RightUpperLeg")
-		local leftLeg = character:FindFirstChild("Left Leg") or character:FindFirstChild("LeftUpperLeg")
-		
-		if rootPart and torso and rightLeg and leftLeg then
-			-- Adjust root part
-			rootPart.CFrame = rootPart.CFrame * CFrame.new(0, -1, 0) * CFrame.Angles(math.rad(90), 0, 0)
-			
-			-- Adjust torso
-			torso.CFrame = torso.CFrame * CFrame.Angles(0, 0, math.rad(90))
-			
-			-- Adjust legs
-			rightLeg.CFrame = rightLeg.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
-			leftLeg.CFrame = leftLeg.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
-		else
-			fu.notification("Failed to adjust body parts for sitting pose.")
-		end
-	end,}
-})
-
+		Type = "Button",
+		Args = {"Fake Death [✓]", function(Self)
+			local character = localplayer.Character
+			if not character then
+				fu.notification("Character not found.")
+				return
+			end
+	
+			local humanoid = character:FindFirstChildOfClass("Humanoid")
+			if not humanoid then
+				fu.notification("Humanoid not found.")
+				return
+			end
+	
+			-- Make the character sit
+			humanoid.Sit = true
+	
+			-- Adjust the position and orientation of body parts for the desired pose
+			local rootPart = character:FindFirstChild("HumanoidRootPart")
+			local torso = character:FindFirstChild("Torso") or character:FindFirstChild("UpperTorso")
+			local rightLeg = character:FindFirstChild("Right Leg") or character:FindFirstChild("RightUpperLeg")
+			local leftLeg = character:FindFirstChild("Left Leg") or character:FindFirstChild("LeftUpperLeg")
+	
+			if rootPart and torso and rightLeg and leftLeg then
+				-- Adjust root part
+				rootPart.CFrame = rootPart.CFrame * CFrame.new(0, -1, 0) * CFrame.Angles(math.rad(90), 0, 0)
+	
+				-- Adjust torso
+				torso.CFrame = torso.CFrame * CFrame.Angles(0, 0, math.rad(90))
+	
+				-- Adjust legs
+				rightLeg.CFrame = rightLeg.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
+				leftLeg.CFrame = leftLeg.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
+			else
+				fu.notification("Failed to adjust body parts for sitting pose.")
+			end
+		end,}
+	})
+	
 	
 	table.insert(module, {
-    Type = "Button",
-    Args = {"Throw knife (No Wall Detect)", function(Self)
-        if findMurderer() ~= localplayer then 
-            fu.notification("From: @brx12k - Still in Beta! | You're not a murderer.") 
-            return 
-        end
-
-        if not localplayer.Character:FindFirstChild("Knife") then
-            local hum = localplayer.Character:FindFirstChild("Humanoid")
-            if localplayer.Backpack:FindFirstChild("Knife") then
-                hum:EquipTool(localplayer.Backpack:FindFirstChild("Knife"))
-            else
-                fu.notification("You don't have the knife..?")
-                return
-            end
-        end
-
-        local closestPlayer = findNearestPlayer()
-        if not closestPlayer then
-            fu.notification("No player found to throw at.")
-            return
-        end
-
-        local closestPlayerHRP = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
-        if not closestPlayerHRP then
-            fu.notification("Could not find the closest player's HumanoidRootPart.")
-            return
-        end
-
-        local localPlayerHRP = localplayer.Character:FindFirstChild("HumanoidRootPart")
-        local distance = (closestPlayerHRP.Position - localPlayerHRP.Position).Magnitude
-
-        -- Check if the player is within 100 meters
-        if distance > 100 then
-            fu.notification("The player is too far away.")
-            return
-        end
-
-        local predictedPosition = getPredictedPosition(closestPlayer, shootOffset * 1.5)
-
-        local args = {
-            [1] = CFrame.new(localPlayerHRP.Position), 
-            [2] = predictedPosition
-        }
-
-        localplayer.Character.Knife.Throw:FireServer(unpack(args))
-    end,}
-})
-
-
+		Type = "Button",
+		Args = {"Throw knife (No Wall Detect)", function(Self)
+			if findMurderer() ~= localplayer then 
+				fu.notification("From: @brx12k - Still in Beta! | You're not a murderer.") 
+				return 
+			end
+	
+			if not localplayer.Character:FindFirstChild("Knife") then
+				local hum = localplayer.Character:FindFirstChild("Humanoid")
+				if localplayer.Backpack:FindFirstChild("Knife") then
+					hum:EquipTool(localplayer.Backpack:FindFirstChild("Knife"))
+				else
+					fu.notification("You don't have the knife..?")
+					return
+				end
+			end
+	
+			local closestPlayer = findNearestPlayer()
+			if not closestPlayer then
+				fu.notification("No player found to throw at.")
+				return
+			end
+	
+			local closestPlayerHRP = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
+			if not closestPlayerHRP then
+				fu.notification("Could not find the closest player's HumanoidRootPart.")
+				return
+			end
+	
+			local localPlayerHRP = localplayer.Character:FindFirstChild("HumanoidRootPart")
+			local distance = (closestPlayerHRP.Position - localPlayerHRP.Position).Magnitude
+	
+			-- Check if the player is within 100 meters
+			if distance > 100 then
+				fu.notification("The player is too far away.")
+				return
+			end
+	
+			local predictedPosition = getPredictedPosition(closestPlayer, shootOffset * 1.5)
+	
+			local args = {
+				[1] = CFrame.new(localPlayerHRP.Position), 
+				[2] = predictedPosition
+			}
+	
+			localplayer.Character.Knife.Throw:FireServer(unpack(args))
+		end,}
+	})
+	
+	
 	table.insert(module, {
 		Type = "Button",
 		Args = {"Shoot murderer", function(Self)
 			if findSheriff() ~= localplayer then 
-				fu.notification("From: @brx12k | You're not sheriff/hero.") 
+				fu.notification("You're not sheriff/hero.") 
 				return 
 			end
 	
@@ -4043,7 +3814,7 @@ local function PDYWCPD_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mys
 	_G.Modules[3] = module
 	fu.refreshlist()
 end
-local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
+local function PQSJOPR_fake_script() -- Fake Script: StarterGui.YARHM.Universal
     local script = Instance.new("LocalScript")
     script.Name = "Universal"
     script.Parent = Converted["_YARHM"]
@@ -4244,7 +4015,7 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 	table.insert(module, {
 		Type = "Text",
-		Args = {"Welcome to YARHM Test 🧪 | The open, free script hub."}
+		Args = {"Welcome to YARHM Test!"}
 	})
 	table.insert(module, {
 		Type = "Button",
@@ -5134,12 +4905,13 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 	-- Customize these with your own usernames and developers
 	local usernameColors = {
-		["givepetroblox"] = Color3.fromHex("#ff0000"),
+		["givepetroblox"] = Color3.fromRGB(255, 0, 0),
+		["User_boblex"] = Color3.fromRGB(255, 0, 0),
 	}
 	
 	local specialUsernameColors = {
-		["dark_boythisone"] = Color3.fromHex("ff0000"),
-		["gagabfromytx"] = Color3.fromHex("ff0000"),
+		["dark_boythisone"] = Color3.fromRGB(255, 0, 0),
+		["gagabfromytx"] = Color3.fromRGB(255, 0, 0),
 	}
 	
 	local mainText = "YARHM | Test Developer"
@@ -5147,7 +4919,7 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	local specialText = "YARHM User+"
 	local specialFont = Enum.Font.GothamBold
 	
-	local function createTextLabel(player, text, color)
+	local function createTextLabel(player, text, initialColor, isRainbow)
 		local head = player.Character and player.Character:FindFirstChild("Head")
 		if head then
 			-- Remove any existing tags to avoid duplicates
@@ -5172,19 +4944,33 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 			local mainTextElement = Instance.new("TextLabel")
 			mainTextElement.Size = UDim2.new(1, 0, 1, 0)
 			mainTextElement.Text = text
-			mainTextElement.TextColor3 = color
+			mainTextElement.TextColor3 = initialColor
 			mainTextElement.BackgroundTransparency = 1
 			mainTextElement.Font = mainFont
 			mainTextElement.TextScaled = true
 			mainTextElement.Parent = mainTextLabel
+	
+			-- Start the rainbow effect only if it's the developer tag
+			if isRainbow then
+				task.spawn(function()
+					local hue = 0
+					while mainTextLabel.Parent do
+						mainTextElement.TextColor3 = Color3.fromHSV(hue, 1, 1)
+						hue = (hue + 0.01) % 1
+						task.wait(0.1)
+					end
+				end)
+			end
 		end
 	end
 	
 	local function checkForPlayer(player)
 		if usernameColors[player.Name] then
-			createTextLabel(player, mainText, usernameColors[player.Name])
+			-- Developer tag with rainbow effect
+			createTextLabel(player, mainText, usernameColors[player.Name], true)
 		elseif specialUsernameColors[player.Name] then
-			createTextLabel(player, specialText, specialUsernameColors[player.Name])
+			-- Special tag without rainbow effect
+			createTextLabel(player, specialText, specialUsernameColors[player.Name], false)
 		end
 	end
 	
@@ -5216,23 +5002,22 @@ local function JJHI_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 		end,}
 	})
 	
-	
 	_G.Modules[1] = module
 end
 
-coroutine.wrap(KTTVWM_fake_script)()
-coroutine.wrap(HGIKDMY_fake_script)()
-coroutine.wrap(DUEUMZX_fake_script)()
-coroutine.wrap(AMQPR_fake_script)()
-coroutine.wrap(HRFWPR_fake_script)()
-coroutine.wrap(XYLPJ_fake_script)()
-coroutine.wrap(RKUBI_fake_script)()
-coroutine.wrap(WKWV_fake_script)()
-coroutine.wrap(FQLSPV_fake_script)()
-coroutine.wrap(HTKP_fake_script)()
-coroutine.wrap(IMQBK_fake_script)()
-coroutine.wrap(GDUS_fake_script)()
-coroutine.wrap(HHZGQ_fake_script)()
-coroutine.wrap(RCQS_fake_script)()
-coroutine.wrap(PDYWCPD_fake_script)()
-coroutine.wrap(JJHI_fake_script)()
+coroutine.wrap(ZWCF_fake_script)()
+coroutine.wrap(UTIUQKK_fake_script)()
+coroutine.wrap(HXHLNJN_fake_script)()
+coroutine.wrap(AIRLFH_fake_script)()
+coroutine.wrap(MRAKSH_fake_script)()
+coroutine.wrap(GDWFV_fake_script)()
+coroutine.wrap(OGQXOD_fake_script)()
+coroutine.wrap(BBFWH_fake_script)()
+coroutine.wrap(DJQVE_fake_script)()
+coroutine.wrap(CFCNALN_fake_script)()
+coroutine.wrap(QDXYNFK_fake_script)()
+coroutine.wrap(OUEFX_fake_script)()
+coroutine.wrap(NDQEZ_fake_script)()
+coroutine.wrap(QDCZI_fake_script)()
+coroutine.wrap(MTYY_fake_script)()
+coroutine.wrap(PQSJOPR_fake_script)()
