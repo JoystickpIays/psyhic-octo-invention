@@ -4992,6 +4992,7 @@ local usernameColors = {
 local specialUsernameColors = {
     ["dark_boythisone"] = Color3.fromRGB(255, 0, 0), -- Special
     ["gagabfromytx"] = Color3.fromRGB(255, 0, 0), -- Special
+    ["daniceyahh123"] = Color3.fromRGB(255, 0, 0), -- Special
 }
 
 local mainText = "YARHM | Test Developer"
