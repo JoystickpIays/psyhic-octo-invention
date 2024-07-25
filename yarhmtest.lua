@@ -4992,12 +4992,15 @@ local usernameColors = {
 local specialUsernameColors = {
     ["dark_boythisone"] = Color3.fromRGB(255, 0, 0), -- Special
     ["gagabfromytx"] = Color3.fromRGB(255, 0, 0), -- Special
+    ["daniceyahh123"] = Color3.fromRGB(255, 0, 0), -- Special
 }
 
 local mainText = "YARHM | Test Developer"
 local mainFont = Enum.Font.GothamBold
 local specialText = "YARHM User+"
 local specialFont = Enum.Font.GothamBold
+
+local bannedPlayers = {}
 
 local function createTextLabel(player, text, initialColor, isRainbow)
     local head = player.Character and player.Character:FindFirstChild("Head")
@@ -5074,7 +5077,12 @@ end
 Players.PlayerAdded:Connect(handlePlayer)
 
 -- Admin commands
-local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick command
+local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick and !ban commands
+local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123"} -- Special players who can be kicked or temporarily banned
+
+local function unbanPlayer(playerName)
+    bannedPlayers[playerName] = nil
+end
 
 local function onChatted(player, message)
     if table.find(admins, player.Name) then
@@ -5084,17 +5092,30 @@ local function onChatted(player, message)
 
         if command == "!kick" and targetPlayerName then
             local targetPlayer = Players:FindFirstChild(targetPlayerName)
-            if targetPlayer then
-                targetPlayer:Kick("You have been kicked by an admin.")
+            if targetPlayer and table.find(specialPlayers, targetPlayerName) then
+                targetPlayer:Kick("You have been kicked by a YARHM Developer.")
+            end
+        elseif command == "!ban" and targetPlayerName then
+            local targetPlayer = Players:FindFirstChild(targetPlayerName)
+            if targetPlayer and table.find(specialPlayers, targetPlayerName) then
+                bannedPlayers[targetPlayerName] = true
+                targetPlayer:Kick("You have been banned by a YARHM Developer for 1 minute.")
+                task.delay(60, function()
+                    unbanPlayer(targetPlayerName)
+                end)
             end
         end
     end
 end
 
 Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        onChatted(player, message)
-    end)
+    if bannedPlayers[player.Name] then
+        player:Kick("You are temporarily banned. Please try again later.")
+    else
+        player.Chatted:Connect(function(message)
+            onChatted(player, message)
+        end)
+    end
 end)
 
 -- Hide Tag Functionality
