@@ -4993,6 +4993,7 @@ local specialUsernameColors = {
     ["dark_boythisone"] = Color3.fromRGB(255, 0, 0), -- Special
     ["gagabfromytx"] = Color3.fromRGB(255, 0, 0), -- Special
     ["daniceyahh123"] = Color3.fromRGB(255, 0, 0), -- Special
+    ["Rip_funeral67"] = Color3.fromRGB(255, 0, 0), -- Special
 }
 
 local mainText = "YARHM | Test Developer"
@@ -5078,7 +5079,7 @@ Players.PlayerAdded:Connect(handlePlayer)
 
 -- Admin commands
 local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick and !ban commands
-local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123"} -- Special players who can be kicked or temporarily banned
+local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123", "Rip_funeral67} -- Special players who can be kicked or temporarily banned
 
 local function unbanPlayer(playerName)
     bannedPlayers[playerName] = nil
