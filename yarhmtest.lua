@@ -5075,11 +5075,8 @@ for _, player in ipairs(Players:GetPlayers()) do
     handlePlayer(player)
 end
 
-Players.PlayerAdded:Connect(handlePlayer)
-
--- Admin commands
 local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick and !ban commands
-local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123", "Rip_funeral67} -- Special players who can be kicked or temporarily banned
+local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123", "Rip_funeral67"} -- Special players who can be kicked or temporarily banned
 
 local function unbanPlayer(playerName)
     bannedPlayers[playerName] = nil
@@ -5113,6 +5110,7 @@ Players.PlayerAdded:Connect(function(player)
     if bannedPlayers[player.Name] then
         player:Kick("You are temporarily banned. Please try again later.")
     else
+        handlePlayer(player)
         player.Chatted:Connect(function(message)
             onChatted(player, message)
         end)
@@ -5126,7 +5124,7 @@ table.insert(module, {
         for _, tag in ipairs(tagsFolder:GetChildren()) do
             tag.Enabled = not state
         end
-    end,}
+    end}
 })
 
 	_G.Modules[1] = module
