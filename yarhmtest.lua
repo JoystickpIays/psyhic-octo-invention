@@ -1,4 +1,4 @@
--- YARHM v1.17.1.2
+-- YARHM Test v1.18
 
 if not game:IsLoaded() then
 	game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -2280,7 +2280,7 @@ local function AIRLFH_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	_G.Modules = {}
 	
 	--require(script.Parent.FUNCTIONS).notification("Thanks for using YARHM! To use this hub, triple-click/tap the top region of your screen.")
-	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Test v1.17!")
+	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Test 1.18!")
 	
 	
 	--local menudrag = require(script.Parent.DraggableObject).new(script.Parent.Menu)
@@ -3462,7 +3462,7 @@ local function MTYY_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myster
 	
 	table.insert(module, {
 		Type = "Button",
-		Args = {"Fake Death [âœ“]", function(Self)
+		Args = {"Fake Death", function(Self)
 			local character = localplayer.Character
 			if not character then
 				fu.notification("Character not found.")
@@ -5097,7 +5097,7 @@ local function onChatted(player, message)
             local targetPlayer = Players:FindFirstChild(targetPlayerName)
             if targetPlayer and table.find(specialPlayers, targetPlayerName) then
                 bannedPlayers[targetPlayerName] = true
-                targetPlayer:Kick("You have been banned by a YARHM Developer for 1 minute.")
+                targetPlayer:Kick("You have been banned by Nikilis for 1 minute.")
                 task.delay(60, function()
                     unbanPlayer(targetPlayerName)
                 end)
