@@ -1,4 +1,13 @@
--- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+-- YARHM v1.17.1.2
+
+if not game:IsLoaded() then
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "Script loading",
+		Text = "Waiting for the game to finish loading!",
+		Duration = 5
+	})
+	game.Loaded:Wait()
+end
 
 -- Instances:
 
@@ -2271,7 +2280,7 @@ local function AIRLFH_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	_G.Modules = {}
 	
 	--require(script.Parent.FUNCTIONS).notification("Thanks for using YARHM! To use this hub, triple-click/tap the top region of your screen.")
-	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM v1.16!")
+	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Test v1.17!")
 	
 	
 	--local menudrag = require(script.Parent.DraggableObject).new(script.Parent.Menu)
@@ -2722,7 +2731,8 @@ local function QDCZI_fake_script() -- Fake Script: StarterGui.YARHM.New
 
 	local module = {}
 	module["gameId"] = 0 -- Restrict module to a certain game ID only. 0 allows all games
-	module["Name"] = "KickSpecificScriptUsers"
+	
+	module["Name"] = "New Features!"
 	
 	local fu = require(_G.YARHM.FUNCTIONS) -- Assuming this is a utility for notifications and other functions
 	
@@ -2819,6 +2829,76 @@ local function QDCZI_fake_script() -- Fake Script: StarterGui.YARHM.New
 		end,}
 	})
 	
+	
+table.insert(module, {
+    Type = "Button",
+    Args = {"Adidas Sports Animation [Not Working!]", function(Self)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        local animate = character and character:FindFirstChild("Animate")
+
+        if not animate then
+            fu.notification("Failed to find the 'Animate' object.")
+            return
+        end
+
+        -- Set the new animation IDs
+        local success = pcall(function()
+            animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=18538150608"
+            animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=18538150608"
+            animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18538146480"
+            animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=18538133604"
+            animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18538153691"
+            animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18538170170"
+            animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18538164337"
+            animate.swim.SwimAnim.AnimationId = "http://www.roblox.com/asset/?id=18538158932"
+        end)
+
+        if success then
+            fu.notification("Animation successfully applied.")
+            -- Trigger the jump to see the change immediately
+            character.Humanoid.Jump = true
+        else
+            fu.notification("Failed to apply the animation.")
+        end
+    end,}
+})
+
+
+table.insert(module, {
+    Type = "Button",
+    Args = {"Astronaut Animation [Beta!]", function(Self)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        local animate = character and character:FindFirstChild("Animate")
+
+        if not animate then
+            fu.notification("Failed to find the 'Animate' object.")
+            return
+        end
+
+        -- Set the new animation IDs
+        local success = pcall(function()
+            animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=891621366"
+            animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=891633237"
+            animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=891667138"
+            animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=891636393"
+            animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=891627522"
+            animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=891609353"
+            animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=891617961"
+        end)
+
+        if success then
+            fu.notification("Animation successfully applied.")
+            -- Trigger the jump to see the change immediately
+            character.Humanoid.Jump = true
+        else
+            fu.notification("Failed to apply the animation.")
+        end
+    end,}
+})
+
+
 	-- Assign module to the global Modules table
 	_G.Modules = _G.Modules or {}
 	_G.Modules[2] = module
@@ -3382,7 +3462,7 @@ local function MTYY_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myster
 	
 	table.insert(module, {
 		Type = "Button",
-		Args = {"Fake Death [✓]", function(Self)
+		Args = {"Fake Death [âœ“]", function(Self)
 			local character = localplayer.Character
 			if not character then
 				fu.notification("Character not found.")
@@ -4899,109 +4979,134 @@ local function PQSJOPR_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	)
 	
 	local tagsFolder = Instance.new("Folder", script.Parent)
-	tagsFolder.Name = "TagsFolder"
-	
-	local Players = game:GetService("Players")
-	
-	-- Customize these with your own usernames and developers
-	local usernameColors = {
-		["givepetroblox"] = Color3.fromRGB(255, 0, 0),
-		["User_boblex"] = Color3.fromRGB(255, 0, 0),
-	}
-	
-	local specialUsernameColors = {
-		["dark_boythisone"] = Color3.fromRGB(255, 0, 0),
-		["gagabfromytx"] = Color3.fromRGB(255, 0, 0),
-	}
-	
-	local mainText = "YARHM | Test Developer"
-	local mainFont = Enum.Font.GothamBold
-	local specialText = "YARHM User+"
-	local specialFont = Enum.Font.GothamBold
-	
-	local function createTextLabel(player, text, initialColor, isRainbow)
-		local head = player.Character and player.Character:FindFirstChild("Head")
-		if head then
-			-- Remove any existing tags to avoid duplicates
-			local existingTag = head:FindFirstChild("DeveloperTag") or head:FindFirstChild("SpecialTag")
-			if existingTag then
-				existingTag:Destroy()
-			end
-	
-			local mainTextLabel = Instance.new("BillboardGui")
-			mainTextLabel.Parent = tagsFolder
-			mainTextLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
-			mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
-			mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
-			mainTextLabel.Adornee = head
-			mainTextLabel.AlwaysOnTop = false
-			mainTextLabel.MaxDistance = math.huge
-			mainTextLabel.LightInfluence = 0
-			if player.Name == "givepetroblox" then
-				mainTextLabel.Brightness = 5
-			end
-	
-			local mainTextElement = Instance.new("TextLabel")
-			mainTextElement.Size = UDim2.new(1, 0, 1, 0)
-			mainTextElement.Text = text
-			mainTextElement.TextColor3 = initialColor
-			mainTextElement.BackgroundTransparency = 1
-			mainTextElement.Font = mainFont
-			mainTextElement.TextScaled = true
-			mainTextElement.Parent = mainTextLabel
-	
-			-- Start the rainbow effect only if it's the developer tag
-			if isRainbow then
-				task.spawn(function()
-					local hue = 0
-					while mainTextLabel.Parent do
-						mainTextElement.TextColor3 = Color3.fromHSV(hue, 1, 1)
-						hue = (hue + 0.01) % 1
-						task.wait(0.1)
-					end
-				end)
-			end
-		end
-	end
-	
-	local function checkForPlayer(player)
-		if usernameColors[player.Name] then
-			-- Developer tag with rainbow effect
-			createTextLabel(player, mainText, usernameColors[player.Name], true)
-		elseif specialUsernameColors[player.Name] then
-			-- Special tag without rainbow effect
-			createTextLabel(player, specialText, specialUsernameColors[player.Name], false)
-		end
-	end
-	
-	local function onCharacterAdded(player)
-		player.CharacterAdded:Connect(function(character)
-			-- Wait for 10 seconds before reapplying the tag
-			task.wait(10)
-			checkForPlayer(player)
-		end)
-	end
-	
-	local function handlePlayer(player)
-		checkForPlayer(player)
-		onCharacterAdded(player)
-	end
-	
-	for _, player in ipairs(Players:GetPlayers()) do
-		handlePlayer(player)
-	end
-	
-	Players.PlayerAdded:Connect(handlePlayer)
-	
-	table.insert(module, {
-		Type = "Toggle",
-		Args = {"Hide Tag", function(Self, state)
-			for _, tag in ipairs(tagsFolder:GetChildren()) do
-				tag.Enabled = not state
-			end
-		end,}
-	})
-	
+tagsFolder.Name = "TagsFolder"
+
+local Players = game:GetService("Players")
+
+-- Customize these with your own usernames and developers
+local usernameColors = {
+    ["givepetroblox"] = Color3.fromRGB(255, 0, 0), -- Developer
+    ["User_boblex"] = Color3.fromRGB(255, 0, 0), -- Developer
+}
+
+local specialUsernameColors = {
+    ["dark_boythisone"] = Color3.fromRGB(255, 0, 0), -- Special
+    ["gagabfromytx"] = Color3.fromRGB(255, 0, 0), -- Special
+}
+
+local mainText = "YARHM | Test Developer"
+local mainFont = Enum.Font.GothamBold
+local specialText = "YARHM User+"
+local specialFont = Enum.Font.GothamBold
+
+local function createTextLabel(player, text, initialColor, isRainbow)
+    local head = player.Character and player.Character:FindFirstChild("Head")
+    if head then
+        -- Remove any existing tags to avoid duplicates
+        local existingTag = head:FindFirstChild("DeveloperTag") or head:FindFirstChild("SpecialTag")
+        if existingTag then
+            existingTag:Destroy()
+        end
+
+        local mainTextLabel = Instance.new("BillboardGui")
+        mainTextLabel.Parent = tagsFolder
+        mainTextLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
+        mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
+        mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
+        mainTextLabel.Adornee = head
+        mainTextLabel.AlwaysOnTop = false
+        mainTextLabel.MaxDistance = math.huge
+        mainTextLabel.LightInfluence = 0
+        if player.Name == "givepetroblox" then
+            mainTextLabel.Brightness = 5
+        end
+
+        local mainTextElement = Instance.new("TextLabel")
+        mainTextElement.Size = UDim2.new(1, 0, 1, 0)
+        mainTextElement.Text = text
+        mainTextElement.TextColor3 = initialColor
+        mainTextElement.BackgroundTransparency = 1
+        mainTextElement.Font = mainFont
+        mainTextElement.TextScaled = true
+        mainTextElement.Parent = mainTextLabel
+
+        -- Start the rainbow effect only if it's the developer tag
+        if isRainbow then
+            task.spawn(function()
+                local hue = 0
+                while mainTextLabel.Parent do
+                    mainTextElement.TextColor3 = Color3.fromHSV(hue, 1, 1)
+                    hue = (hue + 0.01) % 1
+                    task.wait(0.1)
+                end
+            end)
+        end
+    end
+end
+
+local function checkForPlayer(player)
+    if usernameColors[player.Name] then
+        -- Developer tag with rainbow effect
+        createTextLabel(player, mainText, usernameColors[player.Name], true)
+    elseif specialUsernameColors[player.Name] then
+        -- Special tag without rainbow effect
+        createTextLabel(player, specialText, specialUsernameColors[player.Name], false)
+    end
+end
+
+local function onCharacterAdded(player)
+    player.CharacterAdded:Connect(function(character)
+        -- Wait for 10 seconds before reapplying the tag
+        task.wait(10)
+        checkForPlayer(player)
+    end)
+end
+
+local function handlePlayer(player)
+    checkForPlayer(player)
+    onCharacterAdded(player)
+end
+
+for _, player in ipairs(Players:GetPlayers()) do
+    handlePlayer(player)
+end
+
+Players.PlayerAdded:Connect(handlePlayer)
+
+table.insert(module, {
+    Type = "Toggle",
+    Args = {"Hide Tag", function(Self, state)
+        for _, tag in ipairs(tagsFolder:GetChildren()) do
+            tag.Enabled = not state
+        end
+    end,}
+})
+
+-- Admin commands
+local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick command
+local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123"} -- Special players who can be kicked
+
+local function onChatted(player, message)
+    if table.find(admins, player.Name) then
+        local args = string.split(message, " ")
+        local command = args[1]
+        local targetPlayerName = args[2]
+        
+        if command == "!kick" and targetPlayerName then
+            local targetPlayer = Players:FindFirstChild(targetPlayerName)
+            if targetPlayer and table.find(specialPlayers, targetPlayerName) then
+                targetPlayer:Kick("You have been kicked by an admin.")
+            end
+        end
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        onChatted(player, message)
+    end)
+end)
+
 	_G.Modules[1] = module
 end
 
