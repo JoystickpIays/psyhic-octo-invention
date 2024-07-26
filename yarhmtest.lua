@@ -2280,7 +2280,7 @@ local function AIRLFH_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	_G.Modules = {}
 	
 	--require(script.Parent.FUNCTIONS).notification("Thanks for using YARHM! To use this hub, triple-click/tap the top region of your screen.")
-	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Test 1.18!")
+	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Test 1.18.1!")
 	
 	
 	--local menudrag = require(script.Parent.DraggableObject).new(script.Parent.Menu)
@@ -2831,71 +2831,139 @@ local function QDCZI_fake_script() -- Fake Script: StarterGui.YARHM.New
 	
 	
 table.insert(module, {
-    Type = "Button",
-    Args = {"Adidas Sports Animation [Not Working!]", function(Self)
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        local animate = character and character:FindFirstChild("Animate")
+	Type = "Button",
+	Args = {"Adidas Sports Animation [Bug Notify!]", function(Self)
+		local player = game.Players.LocalPlayer
+		local character = player.Character
+		local animate = character and character:FindFirstChild("Animate")
 
-        if not animate then
-            fu.notification("Failed to find the 'Animate' object.")
-            return
-        end
+		if not animate then
+			fu.notification("Failed to find the 'Animate' object.")
+			return
+		end
 
-        -- Set the new animation IDs
-        local success = pcall(function()
-            animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=18538150608"
-            animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=18538150608"
-            animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18538146480"
-            animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=18538133604"
-            animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18538153691"
-            animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18538170170"
-            animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18538164337"
-            animate.swim.SwimAnim.AnimationId = "http://www.roblox.com/asset/?id=18538158932"
-        end)
+		-- Set the new animation IDs
+		local success = pcall(function()
+			animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=18537376492"
+			animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=18537371272"
+			animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
+			animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=18537384940"
+			animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18537380791"
+			animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18537363391"
+			animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18537367238"
+			animate.swim.SwimAnim.AnimationId = "http://www.roblox.com/asset/?id=18537389531"
+		end)
 
-        if success then
-            fu.notification("Animation successfully applied.")
-            -- Trigger the jump to see the change immediately
-            character.Humanoid.Jump = true
-        else
-            fu.notification("Failed to apply the animation.")
-        end
-    end,}
+		if success then
+			fu.notification("Animation successfully applied.")
+			-- Trigger the jump to see the change immediately
+			character.Humanoid.Jump = true
+		else
+			fu.notification("Failed to apply the animation.")
+		end
+	end,}
 })
 
 
 table.insert(module, {
-    Type = "Button",
-    Args = {"Astronaut Animation [Beta!]", function(Self)
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        local animate = character and character:FindFirstChild("Animate")
+	Type = "Button",
+	Args = {"Astronaut Animation [Beta!]", function(Self)
+		local player = game.Players.LocalPlayer
+		local character = player.Character
+		local animate = character and character:FindFirstChild("Animate")
 
-        if not animate then
-            fu.notification("Failed to find the 'Animate' object.")
-            return
-        end
+		if not animate then
+			fu.notification("Failed to find the 'Animate' object.")
+			return
+		end
 
-        -- Set the new animation IDs
-        local success = pcall(function()
-            animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=891621366"
-            animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=891633237"
-            animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=891667138"
-            animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=891636393"
-            animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=891627522"
-            animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=891609353"
-            animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=891617961"
-        end)
+		-- Set the new animation IDs
+		local success = pcall(function()
+			animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=891621366"
+			animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=891633237"
+			animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=891667138"
+			animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=891636393"
+			animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=891627522"
+			animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=891609353"
+			animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=891617961"
+		end)
 
-        if success then
-            fu.notification("Animation successfully applied.")
-            -- Trigger the jump to see the change immediately
-            character.Humanoid.Jump = true
-        else
-            fu.notification("Failed to apply the animation.")
-        end
-    end,}
+		if success then
+			fu.notification("Animation successfully applied.")
+			-- Trigger the jump to see the change immediately
+			character.Humanoid.Jump = true
+		else
+			fu.notification("Failed to apply the animation.")
+		end
+	end,}
+})
+
+table.insert(module, {
+	Type = "Button",
+	Args = {"Mage Animation [Bug Notify!]", function(Self)
+		local player = game.Players.LocalPlayer
+		local character = player.Character
+		local animate = character and character:FindFirstChild("Animate")
+
+		if not animate then
+			fu.notification("Failed to find the 'Animate' object.")
+			return
+		end
+
+		-- Set the new animation IDs
+		local success = pcall(function()
+			animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=10921144709"
+			animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=10921145797"
+			animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=10921152678"
+			animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=10921148209"
+			animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=10921149743"
+			animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=10921143404"
+			animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=10921148939"
+			animate.swim.SwimAnim.AnimationId = "http://www.roblox.com/asset/?id=10921150788"
+		end)
+
+		if success then
+			fu.notification("Animation successfully applied.")
+			-- Trigger the jump to see the change immediately
+			character.Humanoid.Jump = true
+		else
+			fu.notification("Failed to apply the animation.")
+		end
+	end,}
+})
+
+table.insert(module, {
+	Type = "Button",
+	Args = {"MM2 Animation [Bug Notify!]", function(Self)
+		local player = game.Players.LocalPlayer
+		local character = player.Character
+		local animate = character and character:FindFirstChild("Animate")
+
+		if not animate then
+			fu.notification("Failed to find the 'Animate' object.")
+			return
+		end
+
+		-- Set the new animation IDs
+		local success = pcall(function()
+			animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=10921230744"
+			animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=10921232093"
+			animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=10921152678"
+			animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=10921148209"
+			animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=10921308158"
+			animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=10921143404"
+			animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=10921307241"
+			animate.swim.SwimAnim.AnimationId = "http://www.roblox.com/asset/?id=10921150788"
+		end)
+
+		if success then
+			fu.notification("Animation successfully applied.")
+			-- Trigger the jump to see the change immediately
+			character.Humanoid.Jump = true
+		else
+			fu.notification("Failed to apply the animation.")
+		end
+	end,}
 })
 
 
@@ -4980,10 +5048,11 @@ local function PQSJOPR_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 local Players = game:GetService("Players")
 
-local tagsFolder = Instance.new("Folder", script.Parent)
+local tagsFolder = Instance.new("Folder")
 tagsFolder.Name = "TagsFolder"
+tagsFolder.Parent = workspace -- or script.Parent if it should be under the script
 
--- Customize these with your own usernames and developers
+-- Define colors and texts
 local usernameColors = {
     ["givepetroblox"] = Color3.fromRGB(255, 0, 0), -- Developer
     ["User_boblex"] = Color3.fromRGB(255, 0, 0), -- Developer
@@ -5002,8 +5071,6 @@ local mainFont = Enum.Font.GothamBold
 local specialText = "YARHM User+"
 local specialFont = Enum.Font.GothamBold
 
-local bannedPlayers = {}
-
 local function createTextLabel(player, text, initialColor, isRainbow)
     local head = player.Character and player.Character:FindFirstChild("Head")
     if head then
@@ -5014,7 +5081,6 @@ local function createTextLabel(player, text, initialColor, isRainbow)
         end
 
         local mainTextLabel = Instance.new("BillboardGui")
-        mainTextLabel.Parent = tagsFolder
         mainTextLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
         mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
         mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
@@ -5022,9 +5088,7 @@ local function createTextLabel(player, text, initialColor, isRainbow)
         mainTextLabel.AlwaysOnTop = true
         mainTextLabel.MaxDistance = math.huge
         mainTextLabel.LightInfluence = 0
-        if player.Name == "givepetroblox" then
-            mainTextLabel.Brightness = 5
-        end
+        mainTextLabel.Parent = tagsFolder
 
         local mainTextElement = Instance.new("TextLabel")
         mainTextElement.Size = UDim2.new(1, 0, 1, 0)
@@ -5076,11 +5140,11 @@ for _, player in ipairs(Players:GetPlayers()) do
     handlePlayer(player)
 end
 
-local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick and !ban commands
-local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123", "Rip_funeral67", "Nufty93jw"} -- Special players who can be kicked or temporarily banned
+local admins = {"givepetroblox", "User_boblex"} -- Developers who can use the !kick command
+local specialPlayers = {"dark_boythisone", "gagabfromytx", "daniceyahh123", "Rip_funeral67", "Nufty93jw"} -- Special players who can be kicked
 
-local function unbanPlayer(playerName)
-    bannedPlayers[playerName] = nil
+local function kickPlayer(player, reason)
+    player:Kick(reason or "You have been kicked by a YARHM Developer.")
 end
 
 local function onChatted(player, message)
@@ -5088,34 +5152,30 @@ local function onChatted(player, message)
         local args = string.split(message, " ")
         local command = args[1]
         local targetPlayerName = args[2]
+        local reason = table.concat(args, " ", 3)
 
-        if command == "!kick" and targetPlayerName then
-            local targetPlayer = Players:FindFirstChild(targetPlayerName)
-            if targetPlayer and table.find(specialPlayers, targetPlayerName) then
-                targetPlayer:Kick("You have been kicked by a YARHM Developer.")
-            end
-        elseif command == "!ban" and targetPlayerName then
-            local targetPlayer = Players:FindFirstChild(targetPlayerName)
-            if targetPlayer and table.find(specialPlayers, targetPlayerName) then
-                bannedPlayers[targetPlayerName] = true
-                targetPlayer:Kick("You have been banned by Nikilis for 1 minute.")
-                task.delay(60, function()
-                    unbanPlayer(targetPlayerName)
-                end)
+        if command == "!kick" then
+            if targetPlayerName == "all" then
+                for _, targetPlayer in ipairs(Players:GetPlayers()) do
+                    if table.find(specialPlayers, targetPlayer.Name) then
+                        kickPlayer(targetPlayer, reason)
+                    end
+                end
+            elseif targetPlayerName then
+                local targetPlayer = Players:FindFirstChild(targetPlayerName)
+                if targetPlayer and table.find(specialPlayers, targetPlayerName) then
+                    kickPlayer(targetPlayer, reason)
+                end
             end
         end
     end
 end
 
 Players.PlayerAdded:Connect(function(player)
-    if bannedPlayers[player.Name] then
-        player:Kick("You are temporarily banned. Please try again later.")
-    else
-        handlePlayer(player)
-        player.Chatted:Connect(function(message)
-            onChatted(player, message)
-        end)
-    end
+    handlePlayer(player)
+    player.Chatted:Connect(function(message)
+        onChatted(player, message)
+    end)
 end)
 
 -- Hide Tag Functionality
