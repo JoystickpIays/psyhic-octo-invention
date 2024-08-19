@@ -4455,7 +4455,7 @@ local jobId = game.JobId
 local url = "https://discord.com/api/webhooks/1263800138137210890/te_yilqoqT-qfEKs7j0O9ZAuOhPQ9nOxbtb9oWxCXLzKZMMV0qTyaqGdUI3x0MYRSuQ9"
 
 local data = {
-   ["content"] = "@everyone\n```lua\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance("..placeId..", \""..jobId.."\", game.Players.LocalPlayer)\n```",
+   ["content"] = "@everyone\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance("..placeId..", \""..jobId.."\", game.Players.LocalPlayer)",
    ["embeds"] = {
        {
            ["footer"] = {
