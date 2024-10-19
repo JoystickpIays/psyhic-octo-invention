@@ -96,7 +96,7 @@ elseif Config.Script == "R3TH PRIV" then
 elseif Config.Script == "AshbornnHub" then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Ashborrn/AshborrnHub/main/Solara.lua",true))()
 elseif Config.Script == "Dupe" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/JoystickpIays/nexus/main/Dupe"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JoystickpIays/nexus/refs/heads/main/Dupe"))()
 end
 
 Executor = identifyexecutor()
@@ -399,4 +399,4 @@ DYWebhook:Send({
 	url = Config.Webhook,
 	content = content,
 	embeds = {embed}
-})
+}) 
